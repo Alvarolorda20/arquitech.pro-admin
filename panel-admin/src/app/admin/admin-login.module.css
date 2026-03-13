@@ -1,0 +1,227 @@
+.shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(15,157,145,.38), transparent 38%),
+    radial-gradient(circle at 90% 8%, rgba(255,193,111,.3), transparent 34%),
+    linear-gradient(140deg, #131a17 0%, #1d2723 50%, #17201d 100%);
+}
+
+.card {
+  width: min(500px, 100%);
+  border-radius: 18px;
+  border: 1px solid rgba(25, 33, 28, 0.18);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  right: -66px;
+  top: -72px;
+  background: radial-gradient(circle, rgba(15,157,145,.2) 0%, transparent 72%);
+  pointer-events: none;
+}
+
+.title {
+  margin: 0 0 10px;
+  line-height: 1.06;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(1.3rem, 3.3vw, 2rem);
+  color: #19201c;
+}
+
+.subtitle {
+  margin: 0 0 18px;
+  color: #48534c;
+  font-size: .95rem;
+}
+
+.field {
+  margin-bottom: 12px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: .86rem;
+  color: #24302a;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid rgba(25, 33, 28, 0.18);
+  border-radius: 10px;
+  padding: 11px 12px;
+  font-size: .94rem;
+  outline: none;
+  background: #fff;
+}
+
+.input:focus {
+  border-color: rgba(15,157,145,.6);
+  box-shadow: 0 0 0 3px rgba(15,157,145,.15);
+}
+
+.submit {
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 11px 12px;
+  font-weight: 700;
+  background: #0f9d91;
+  color: #f7fffd;
+  cursor: pointer;
+  transition: transform .13s ease, background .2s ease;
+}
+
+.submit:hover {
+  transform: translateY(-1px);
+  background: #087068;
+}
+
+.submit:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.status {
+  min-height: 20px;
+  margin-top: 12px;
+  font-size: .86rem;
+  color: #48534c;
+}
+
+.statusError {
+  color: #b04a2a;
+}
+
+.statusOk {
+  color: #146b47;
+}
+
+@media (prefers-color-scheme: dark) {
+  .shell {
+    background:
+      radial-gradient(circle at 10% 20%, rgba(37, 179, 167, 0.2), transparent 38%),
+      radial-gradient(circle at 90% 8%, rgba(255, 193, 111, 0.15), transparent 34%),
+      linear-gradient(140deg, #070c0b 0%, #0d1413 50%, #0a1210 100%);
+  }
+
+  .card {
+    border-color: rgba(194, 214, 206, 0.24);
+    background: rgba(13, 20, 18, 0.94);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.6);
+  }
+
+  .card::after {
+    background: radial-gradient(circle, rgba(37, 179, 167, 0.18) 0%, transparent 72%);
+  }
+
+  .title {
+    color: #e9f1ee;
+  }
+
+  .subtitle {
+    color: #b5c5bf;
+  }
+
+  .label {
+    color: #cddbd6;
+  }
+
+  .input {
+    border-color: rgba(194, 214, 206, 0.24);
+    background: rgba(8, 14, 12, 0.88);
+    color: #e9f1ee;
+  }
+
+  .submit {
+    background: #25b3a7;
+  }
+
+  .submit:hover {
+    background: #1a8e85;
+  }
+
+  .status {
+    color: #b5c5bf;
+  }
+
+  .statusError {
+    color: #ff9f80;
+  }
+
+  .statusOk {
+    color: #7ad6ad;
+  }
+}
+
+/* Manual dark theme via data-app-theme */
+:global([data-app-theme='dark']) .shell {
+    background:
+      radial-gradient(circle at 10% 20%, rgba(37, 179, 167, 0.2), transparent 38%),
+      radial-gradient(circle at 90% 8%, rgba(255, 193, 111, 0.15), transparent 34%),
+      linear-gradient(140deg, #070c0b 0%, #0d1413 50%, #0a1210 100%);
+  }
+
+  :global([data-app-theme='dark']) .card {
+    border-color: rgba(194, 214, 206, 0.24);
+    background: rgba(13, 20, 18, 0.94);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.6);
+  }
+
+  :global([data-app-theme='dark']) .card::after {
+    background: radial-gradient(circle, rgba(37, 179, 167, 0.18) 0%, transparent 72%);
+  }
+
+  :global([data-app-theme='dark']) .title {
+    color: #e9f1ee;
+  }
+
+  :global([data-app-theme='dark']) .subtitle {
+    color: #b5c5bf;
+  }
+
+  :global([data-app-theme='dark']) .label {
+    color: #cddbd6;
+  }
+
+  :global([data-app-theme='dark']) .input {
+    border-color: rgba(194, 214, 206, 0.24);
+    background: rgba(8, 14, 12, 0.88);
+    color: #e9f1ee;
+  }
+
+  :global([data-app-theme='dark']) .submit {
+    background: #25b3a7;
+  }
+
+  :global([data-app-theme='dark']) .submit:hover {
+    background: #1a8e85;
+  }
+
+  :global([data-app-theme='dark']) .status {
+    color: #b5c5bf;
+  }
+
+  :global([data-app-theme='dark']) .statusError {
+    color: #ff9f80;
+  }
+
+  :global([data-app-theme='dark']) .statusOk {
+    color: #7ad6ad;
+  }

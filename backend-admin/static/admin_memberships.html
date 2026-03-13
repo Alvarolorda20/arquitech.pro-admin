@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Panel Admin | Membresias Global</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+    :root {
+      color-scheme: light;
+      --bg: #f4efe6;
+      --bg-soft: #ebe3d6;
+      --ink: #1f241f;
+      --ink-soft: #475047;
+      --ink-dim: #6b746d;
+      --accent: #0f9d91;
+      --accent-strong: #006c64;
+      --accent-soft: rgba(15, 157, 145, 0.16);
+      --warn: #ad3f1f;
+      --ok: #1f7a4e;
+      --card: rgba(255, 255, 255, 0.88);
+      --line: rgba(31, 36, 31, 0.16);
+      --line-strong: rgba(31, 36, 31, 0.24);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --shadow: 0 20px 45px rgba(31, 36, 31, 0.14);
+      --shadow-soft: 0 10px 26px rgba(31, 36, 31, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 14% 8%, #d2f2ed 0%, transparent 34%),
+        radial-gradient(circle at 81% 19%, #ffe1bf 0%, transparent 35%),
+        linear-gradient(160deg, var(--bg) 0%, #f8f3eb 46%, var(--bg-soft) 100%);
+      padding: 18px;
+    }
+
+    .wrap {
+      max-width: 1380px;
+      margin: 0 auto;
+      animation: rise .45s ease;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero,
+    .panel,
+    .table-wrap,
+    .tenant-wrap {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 20px 20px 16px;
+      margin-bottom: 12px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(140deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.8) 100%);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -42px;
+      top: -52px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(15,157,145,.2) 0%, transparent 72%);
+      pointer-events: none;
+    }
+
+    .title {
+      margin: 0;
+      line-height: 1.04;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(1.36rem, 3.05vw, 2.14rem);
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      max-width: 980px;
+    }
+
+    .muted {
+      margin: 9px 0 0;
+      color: #30423b;
+      font-size: 1.02rem;
+      max-width: 900px;
+    }
+
+    .hero-meta {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .pill {
+      border: 1px dashed var(--line-strong);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: .79rem;
+      background: rgba(255,255,255,.72);
+      color: var(--ink-soft);
+      word-break: break-all;
+    }
+
+    .pill strong { color: var(--ink); }
+
+    .status {
+      margin-top: 10px;
+      min-height: 22px;
+      font-size: .88rem;
+      color: var(--ink-soft);
+      border-left: 3px solid var(--accent-soft);
+      padding-left: 8px;
+    }
+
+    .status.error {
+      color: var(--warn);
+      border-left-color: rgba(173, 63, 31, 0.4);
+    }
+
+    .status.ok {
+      color: var(--ok);
+      border-left-color: rgba(31, 122, 78, 0.4);
+    }
+
+    .panel {
+      padding: 12px;
+      margin-bottom: 12px;
+      background: rgba(255,255,255,.8);
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr minmax(220px, 250px) auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    input[type='search'],
+    select {
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,.9);
+      border-radius: var(--radius-sm);
+      padding: 11px 13px;
+      font-size: .95rem;
+      width: 100%;
+      outline: none;
+      color: var(--ink);
+      transition: border-color .15s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    input[type='search']::placeholder { color: var(--ink-dim); }
+
+    input[type='search']:focus,
+    select:focus {
+      border-color: rgba(15,157,145,.6);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(15,157,145,.15);
+    }
+
+    .btn {
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      background: var(--accent);
+      color: #fafffe;
+      font-weight: 700;
+      letter-spacing: .2px;
+      cursor: pointer;
+      transition: transform .12s ease, background .2s ease, box-shadow .2s ease;
+      box-shadow: 0 8px 18px rgba(15,157,145,.22);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: var(--accent-strong);
+      box-shadow: 0 11px 20px rgba(0,108,100,.28);
+    }
+
+    .btn:disabled {
+      opacity: .58;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn.alt {
+      background: #fff;
+      color: var(--ink);
+      border-color: var(--line-strong);
+      box-shadow: none;
+    }
+
+    .btn.alt:hover {
+      background: #f7f8f7;
+      box-shadow: none;
+    }
+
+    .btn.danger {
+      background: #fff5f2;
+      color: #9f3f22;
+      border-color: #dfbaa9;
+      box-shadow: none;
+    }
+
+    .btn.danger:hover {
+      background: #ffeae3;
+      box-shadow: none;
+    }
+
+    .btn.small {
+      padding: 8px 10px;
+      font-size: .82rem;
+      font-weight: 600;
+      border-radius: 9px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      background:
+        linear-gradient(150deg, rgba(255,255,255,.95), rgba(255,255,255,.84));
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 4px;
+      background: linear-gradient(180deg, var(--accent), rgba(15,157,145,.15));
+      opacity: .6;
+    }
+
+    .card .k {
+      display: block;
+      font-size: .73rem;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      color: var(--ink-soft);
+      padding-left: 8px;
+    }
+
+    .card .v {
+      margin-top: 4px;
+      padding-left: 8px;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.32rem;
+      line-height: 1;
+      color: #13231d;
+    }
+
+    .tenant-wrap,
+    .table-wrap {
+      overflow: hidden;
+      margin-bottom: 12px;
+      background: rgba(255,255,255,.84);
+    }
+
+    .table-title {
+      margin: 0;
+      font-size: .79rem;
+      letter-spacing: .72px;
+      text-transform: uppercase;
+      color: #2f4b41;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,.66));
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .9rem;
+    }
+
+    th,
+    td {
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      padding: 11px 10px;
+      vertical-align: top;
+    }
+
+    th {
+      font-size: .73rem;
+      text-transform: uppercase;
+      letter-spacing: .62px;
+      color: var(--ink-soft);
+      background: rgba(255,255,255,.86);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td { background: rgba(255,255,255,.57); }
+    tr:hover td { background: rgba(212, 250, 245, 0.24); }
+
+    .user-name { font-weight: 600; color: #1f2f29; }
+
+    .tiny {
+      font-size: .76rem;
+      color: var(--ink-soft);
+      word-break: break-all;
+      margin-top: 2px;
+    }
+
+    .state {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-size: .75rem;
+      font-weight: 700;
+      border: 1px solid;
+      margin-bottom: 5px;
+      letter-spacing: .2px;
+    }
+
+    .state.active {
+      color: var(--ok);
+      border-color: rgba(31,122,78,.35);
+      background: rgba(31,122,78,.1);
+    }
+
+    .state.inactive {
+      color: var(--warn);
+      border-color: rgba(173,63,31,.35);
+      background: rgba(173,63,31,.1);
+    }
+
+    .row-actions {
+      display: grid;
+      gap: 7px;
+      min-width: 190px;
+    }
+
+    .toast {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      padding: 10px 13px;
+      border-radius: 10px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255,255,255,.97);
+      box-shadow: var(--shadow);
+      transform: translateY(30px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all .2s ease;
+      font-size: .86rem;
+      z-index: 20;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .session-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(14, 24, 21, 0.56);
+      display: none;
+      place-items: center;
+      z-index: 60;
+      padding: 16px;
+    }
+
+    .session-overlay.show {
+      display: grid;
+    }
+
+    .session-modal {
+      width: min(460px, 100%);
+      border-radius: 16px;
+      border: 1px solid var(--line-strong);
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .session-modal h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      color: var(--ink);
+    }
+
+    .session-modal p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: .92rem;
+    }
+
+    .session-actions {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .empty {
+      text-align: center;
+      color: var(--ink-soft);
+      padding: 22px;
+      font-size: .9rem;
+    }
+
+    .loading .btn,
+    .loading input,
+    .loading select { opacity: .82; }
+
+    @media (max-width: 980px) {
+      .controls { grid-template-columns: 1fr; }
+      .panel { padding: 10px; }
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 10px; }
+      .hero { padding: 16px 14px 14px; }
+      .title { font-size: 1.26rem; }
+      .muted { font-size: .95rem; }
+
+      table,
+      tbody,
+      tr,
+      td {
+        display: block;
+        width: 100%;
+      }
+
+      thead { display: none; }
+      tr { border-bottom: 1px solid var(--line); }
+      td {
+        border-bottom: none;
+        padding: 9px 11px;
+      }
+
+      td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: .72rem;
+        text-transform: uppercase;
+        letter-spacing: .6px;
+        color: var(--ink-soft);
+        margin-bottom: 3px;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --bg: #0d1316;
+        --bg-soft: #0f1a1f;
+        --ink: #e5efea;
+        --ink-soft: #aab7b0;
+        --ink-dim: #8f9e97;
+        --accent: #25b3a7;
+        --accent-strong: #1a8e85;
+        --accent-soft: rgba(37, 179, 167, 0.2);
+        --warn: #ffab8c;
+        --ok: #78d4a9;
+        --card: rgba(14, 22, 27, 0.86);
+        --line: rgba(177, 197, 190, 0.2);
+        --line-strong: rgba(177, 197, 190, 0.34);
+        --shadow: 0 20px 45px rgba(0, 0, 0, 0.52);
+        --shadow-soft: 0 10px 26px rgba(0, 0, 0, 0.36);
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 14% 8%, rgba(33, 112, 101, 0.36) 0%, transparent 34%),
+          radial-gradient(circle at 81% 19%, rgba(150, 93, 47, 0.28) 0%, transparent 35%),
+          linear-gradient(160deg, var(--bg) 0%, #121d22 46%, var(--bg-soft) 100%);
+      }
+
+      .hero {
+        background: linear-gradient(140deg, rgba(17, 28, 33, 0.96) 0%, rgba(13, 24, 28, 0.92) 100%);
+      }
+
+      .hero::after {
+        background: radial-gradient(circle, rgba(37,179,167,.2) 0%, transparent 72%);
+      }
+
+      .muted { color: var(--ink-soft); }
+
+      .pill {
+        background: rgba(12, 20, 24, 0.82);
+      }
+
+      .panel {
+        background: rgba(13, 20, 24, 0.8);
+      }
+
+      input[type='search'],
+      select {
+        background: rgba(9, 16, 19, 0.86);
+      }
+
+      input[type='search']:focus,
+      select:focus {
+        background: rgba(13, 21, 25, 0.96);
+      }
+
+      .btn.alt {
+        background: rgba(9, 17, 20, 0.88);
+        border-color: var(--line-strong);
+        color: var(--ink);
+      }
+
+      .btn.alt:hover {
+        background: rgba(14, 24, 28, 0.94);
+      }
+
+      .btn.danger {
+        background: rgba(85, 33, 16, 0.28);
+        color: #ffb39a;
+        border-color: rgba(223, 186, 169, 0.5);
+      }
+
+      .btn.danger:hover {
+        background: rgba(111, 41, 20, 0.34);
+      }
+
+      .card {
+        background: linear-gradient(150deg, rgba(18, 29, 34, 0.96), rgba(14, 24, 28, 0.88));
+      }
+
+      .card .v {
+        color: var(--ink);
+      }
+
+      .tenant-wrap,
+      .table-wrap {
+        background: rgba(13, 21, 26, 0.84);
+      }
+
+      .table-title {
+        color: #c2d4cd;
+        background: linear-gradient(180deg, rgba(17, 28, 33, 0.9), rgba(15, 25, 30, 0.78));
+      }
+
+      th {
+        background: rgba(18, 30, 36, 0.92);
+      }
+
+      tr:nth-child(even) td { background: rgba(18, 28, 33, 0.57); }
+      tr:hover td { background: rgba(28, 63, 58, 0.48); }
+      .user-name { color: var(--ink); }
+
+      .toast {
+        background: rgba(15, 23, 28, 0.97);
+        color: var(--ink);
+      }
+
+      .session-overlay {
+        background: rgba(7, 12, 15, 0.72);
+      }
+
+      .session-modal {
+        background: rgba(15, 23, 28, 0.98);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="app-wrap">
+    <section class="hero">
+      <h1 class="title">Global Admin Membership Console</h1>
+      <p class="muted">Control global de tenants, metricas y membresias. No requiere tenant para entrar.</p>
+      <div class="hero-meta">
+        <div class="pill">Scope: <strong id="scope-pill">Todos los tenants</strong></div>
+        <div class="pill">Actor: <strong id="actor-pill">-</strong></div>
+      </div>
+      <div class="status" id="status">Cargando datos...</div>
+    </section>
+
+    <section class="panel">
+      <div class="controls">
+        <input id="search" type="search" placeholder="Buscar por tenant, email, user_id o nombre" />
+        <select id="tenant-filter">
+          <option value="">Todos los tenants</option>
+        </select>
+        <button class="btn" id="reload">Recargar</button>
+      </div>
+    </section>
+
+    <section class="grid" id="summary-grid"></section>
+
+    <section class="tenant-wrap">
+      <h2 class="table-title">Tenants</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tenant</th>
+            <th>Membresias</th>
+            <th>Admins</th>
+            <th>Runs</th>
+            <th>Ultima actividad</th>
+          </tr>
+        </thead>
+        <tbody id="tenant-rows"></tbody>
+      </table>
+    </section>
+
+    <section class="table-wrap">
+      <h2 class="table-title">Membresias</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tenant</th>
+            <th>Usuario</th>
+            <th>Membresia</th>
+            <th>Rol</th>
+            <th>Uso</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <div class="session-overlay" id="session-overlay">
+    <div class="session-modal">
+      <h3>Sesion a punto de caducar</h3>
+      <p id="session-countdown-text">Se cerrara la sesion por inactividad.</p>
+      <div class="session-actions">
+        <button class="btn" id="session-continue" type="button">Continuar sesion</button>
+        <button class="btn alt" id="session-logout" type="button">Cerrar ahora</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const initialTenantId = (params.get('tenant_id') || '').trim();
+    const ADMIN_SESSION_KEY = 'admin_session_v1';
+    const IDLE_TIMEOUT_MS = 30 * 60 * 1000;
+    const IDLE_WARNING_MS = 60 * 1000;
+    const REFRESH_MARGIN_MS = 90 * 1000;
+    const ACTIVITY_EVENTS = ['mousedown', 'keydown', 'touchstart', 'scroll', 'mousemove'];
+
+    const state = {
+      users: [],
+      filtered: [],
+      tenants: [],
+      summary: null,
+      availableRoles: [],
+      actor: null,
+      loading: false,
+      search: '',
+      tenantFilter: initialTenantId,
+      session: null,
+      lastActivityAt: Date.now(),
+      warningVisible: false,
+      warningCountdownSeconds: 0,
+      monitorTimer: null
+    };
+
+    const el = {
+      appWrap: document.getElementById('app-wrap'),
+      scopePill: document.getElementById('scope-pill'),
+      actorPill: document.getElementById('actor-pill'),
+      status: document.getElementById('status'),
+      search: document.getElementById('search'),
+      tenantFilter: document.getElementById('tenant-filter'),
+      reload: document.getElementById('reload'),
+      rows: document.getElementById('rows'),
+      tenantRows: document.getElementById('tenant-rows'),
+      summaryGrid: document.getElementById('summary-grid'),
+      toast: document.getElementById('toast'),
+      sessionOverlay: document.getElementById('session-overlay'),
+      sessionCountdownText: document.getElementById('session-countdown-text'),
+      sessionContinue: document.getElementById('session-continue'),
+      sessionLogout: document.getElementById('session-logout')
+    };
+
+    function setStatus(text, type = 'info') {
+      el.status.textContent = text;
+      el.status.classList.remove('error', 'ok');
+      if (type === 'error') el.status.classList.add('error');
+      if (type === 'ok') el.status.classList.add('ok');
+    }
+
+    function setLoading(active) {
+      state.loading = active;
+      el.reload.disabled = active;
+      if (active) {
+        el.appWrap.classList.add('loading');
+      } else {
+        el.appWrap.classList.remove('loading');
+      }
+    }
+
+    function showToast(text) {
+      el.toast.textContent = text;
+      el.toast.classList.add('show');
+      clearTimeout(showToast.t);
+      showToast.t = setTimeout(() => el.toast.classList.remove('show'), 2100);
+    }
+
+    function readStoredSession() {
+      const raw = window.localStorage.getItem(ADMIN_SESSION_KEY);
+      if (!raw) return null;
+      try {
+        const parsed = JSON.parse(raw);
+        const access = String(parsed.access_token || '').trim();
+        if (!access) return null;
+        return {
+          access_token: access,
+          refresh_token: String(parsed.refresh_token || '').trim() || undefined,
+          token_type: String(parsed.token_type || 'bearer').trim() || 'bearer',
+          expires_at_ms: Number(parsed.expires_at_ms || 0) || undefined
+        };
+      } catch {
+        return null;
+      }
+    }
+
+    function computeExpiresAtMs(payload) {
+      const rawExpiresAt = Number(payload.expires_at || 0);
+      if (Number.isFinite(rawExpiresAt) && rawExpiresAt > 0) {
+        if (rawExpiresAt > 1000000000000) return Math.floor(rawExpiresAt);
+        return Math.floor(rawExpiresAt * 1000);
+      }
+      const rawExpiresIn = Number(payload.expires_in || 0);
+      if (Number.isFinite(rawExpiresIn) && rawExpiresIn > 0) {
+        return Date.now() + Math.floor(rawExpiresIn * 1000);
+      }
+      return undefined;
+    }
+
+    function saveSession(payload) {
+      const access = String(payload.access_token || '').trim();
+      if (!access) return;
+      state.session = {
+        access_token: access,
+        refresh_token: String(payload.refresh_token || '').trim() || undefined,
+        token_type: String(payload.token_type || 'bearer').trim() || 'bearer',
+        expires_at_ms: computeExpiresAtMs(payload)
+      };
+      window.localStorage.setItem(ADMIN_SESSION_KEY, JSON.stringify(state.session));
+    }
+
+    function clearSession() {
+      state.session = null;
+      window.localStorage.removeItem(ADMIN_SESSION_KEY);
+    }
+
+    function logoutToLogin(reason = 'session_expired') {
+      clearSession();
+      const next = '/admin/memberships';
+      window.location.href = `/admin?reason=${encodeURIComponent(reason)}&next=${encodeURIComponent(next)}`;
+    }
+
+    function isSessionExpiringSoon() {
+      if (!state.session || !state.session.expires_at_ms) return false;
+      return state.session.expires_at_ms - Date.now() <= REFRESH_MARGIN_MS;
+    }
+
+    function setWarningVisible(visible, countdownSeconds = 0) {
+      state.warningVisible = visible;
+      state.warningCountdownSeconds = countdownSeconds;
+      if (!el.sessionOverlay) return;
+      if (!visible) {
+        el.sessionOverlay.classList.remove('show');
+        return;
+      }
+      el.sessionOverlay.classList.add('show');
+      if (el.sessionCountdownText) {
+        el.sessionCountdownText.textContent =
+          `Se cerrara la sesion por inactividad en ${countdownSeconds}s.`;
+      }
+    }
+
+    function recordActivity() {
+      state.lastActivityAt = Date.now();
+      if (state.warningVisible) setWarningVisible(false, 0);
+    }
+
+    async function refreshSession(force = false) {
+      if (!state.session) throw new Error('No hay sesion admin activa.');
+      if (!force && !isSessionExpiringSoon()) return state.session.access_token;
+      const refreshToken = String(state.session.refresh_token || '').trim();
+      if (!refreshToken) return state.session.access_token;
+
+      const res = await fetch('/api/admin/refresh', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({refresh_token: refreshToken})
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(body.detail || `HTTP ${res.status}`);
+      }
+      saveSession({
+        access_token: body.access_token,
+        refresh_token: body.refresh_token || refreshToken,
+        token_type: body.token_type,
+        expires_in: body.expires_in,
+        expires_at: body.expires_at
+      });
+      return state.session.access_token;
+    }
+
+    async function ensureAccessToken(forceRefresh = false) {
+      if (!state.session) {
+        state.session = readStoredSession();
+      }
+      if (!state.session) {
+        logoutToLogin('session_expired');
+        throw new Error('No hay sesion admin activa.');
+      }
+      if (forceRefresh || isSessionExpiringSoon()) {
+        try {
+          return await refreshSession(true);
+        } catch (err) {
+          logoutToLogin('session_expired');
+          throw err;
+        }
+      }
+      return state.session.access_token;
+    }
+
+    async function apiFetchWithAuth(url, options = {}, retry = true) {
+      recordActivity();
+      const token = await ensureAccessToken(false);
+      const headers = new Headers(options.headers || {});
+      headers.set('Authorization', `Bearer ${token}`);
+      const response = await fetch(url, {...options, headers});
+      if ((response.status === 401 || response.status === 403) && retry) {
+        const nextToken = await ensureAccessToken(true);
+        const retryHeaders = new Headers(options.headers || {});
+        retryHeaders.set('Authorization', `Bearer ${nextToken}`);
+        return fetch(url, {...options, headers: retryHeaders});
+      }
+      return response;
+    }
+
+    async function apiGet(url) {
+      const res = await apiFetchWithAuth(url, { method: 'GET' });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body.detail || `HTTP ${res.status}`);
+      return body;
+    }
+
+    async function apiPatch(url, payload) {
+      const res = await apiFetchWithAuth(url, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body.detail || `HTTP ${res.status}`);
+      return body;
+    }
+
+    async function apiDelete(url, payload) {
+      const res = await apiFetchWithAuth(url, {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body.detail || `HTTP ${res.status}`);
+      return body;
+    }
+
+    function drawSummary(summary) {
+      el.summaryGrid.innerHTML = '';
+      const cards = [
+        ['Tenants', summary.tenants_total || 0],
+        ['Membresias', summary.memberships_total || 0],
+        ['Activas', summary.active_memberships || 0],
+        ['Admins tenant', summary.admin_memberships || 0],
+        ['Runs totales', summary.runs_total || 0]
+      ];
+      for (const [k, v] of cards) {
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.innerHTML = `<span class="k">${k}</span><div class="v">${Number(v || 0)}</div>`;
+        el.summaryGrid.appendChild(card);
+      }
+    }
+
+    function renderTenants() {
+      el.tenantRows.innerHTML = '';
+      if (!state.tenants.length) {
+        const tr = document.createElement('tr');
+        const td = document.createElement('td');
+        td.colSpan = 5;
+        td.className = 'empty';
+        td.textContent = 'No hay tenants para mostrar.';
+        tr.appendChild(td);
+        el.tenantRows.appendChild(tr);
+        return;
+      }
+
+      for (const tenant of state.tenants) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td data-label="Tenant">
+            <div class="user-name">${escapeHtml(tenant.name || tenant.tenant_id || '-')}</div>
+            <div class="tiny">${escapeHtml(tenant.tenant_id || '-')}</div>
+          </td>
+          <td data-label="Membresias">
+            <div class="user-name">${Number(tenant.memberships_total || 0)}</div>
+            <div class="tiny">Activas: ${Number(tenant.active_memberships || 0)}</div>
+          </td>
+          <td data-label="Admins">${Number(tenant.admin_memberships || 0)}</td>
+          <td data-label="Runs">
+            <div class="user-name">${Number(tenant.runs_total || 0)}</div>
+            <div class="tiny">OK: ${Number(tenant.runs_completed || 0)} | KO: ${Number(tenant.runs_failed || 0)}</div>
+          </td>
+          <td data-label="Ultima actividad">${formatDate(tenant.last_run_at)}</td>
+        `;
+        el.tenantRows.appendChild(tr);
+      }
+    }
+
+    function updateTenantFilterOptions() {
+      const current = state.tenantFilter || '';
+      const options = ['<option value="">Todos los tenants</option>'];
+      for (const tenant of state.tenants) {
+        options.push(`<option value="${escapeAttr(tenant.tenant_id)}">${escapeHtml(tenant.name || tenant.tenant_id)}</option>`);
+      }
+      el.tenantFilter.innerHTML = options.join('');
+      el.tenantFilter.value = current;
+    }
+
+    function applyFilter() {
+      const q = state.search.trim().toLowerCase();
+      state.filtered = state.users.filter((u) => {
+        const fields = [
+          u.tenant_name,
+          u.tenant_id,
+          u.email,
+          u.user_id,
+          u.display_name,
+          u.membership?.role,
+          u.membership?.status
+        ].map((x) => String(x || '').toLowerCase());
+        if (q && !fields.some((x) => x.includes(q))) return false;
+        return true;
+      });
+      renderRows();
+    }
+
+    function renderRows() {
+      el.rows.innerHTML = '';
+      if (!state.filtered.length) {
+        const tr = document.createElement('tr');
+        const td = document.createElement('td');
+        td.colSpan = 6;
+        td.className = 'empty';
+        td.textContent = 'No hay membresias para mostrar con el filtro actual.';
+        tr.appendChild(td);
+        el.rows.appendChild(tr);
+        return;
+      }
+
+      for (const user of state.filtered) {
+        const tr = document.createElement('tr');
+
+        const tenantCell = document.createElement('td');
+        tenantCell.setAttribute('data-label', 'Tenant');
+        tenantCell.innerHTML = `
+          <div class="user-name">${escapeHtml(user.tenant_name || user.tenant_id || '-')}</div>
+          <div class="tiny">${escapeHtml(user.tenant_id || '-')}</div>
+        `;
+
+        const userCell = document.createElement('td');
+        userCell.setAttribute('data-label', 'Usuario');
+        userCell.innerHTML = `
+          <div class="user-name">${escapeHtml(user.display_name || user.email || 'Sin nombre')}</div>
+          <div class="tiny">${escapeHtml(user.email || 'Sin email')}</div>
+          <div class="tiny">${escapeHtml(user.user_id || '-')}</div>
+        `;
+
+        const membershipCell = document.createElement('td');
+        membershipCell.setAttribute('data-label', 'Membresia');
+        const statusClass = user.membership?.enabled ? 'active' : 'inactive';
+        membershipCell.innerHTML = `
+          <span class="state ${statusClass}">${escapeHtml(user.membership?.status || 'unknown')}</span>
+          <div class="tiny">Creada: ${formatDate(user.membership?.created_at)}</div>
+          <div class="tiny">Actualizada: ${formatDate(user.membership?.updated_at)}</div>
+        `;
+
+        const roleCell = document.createElement('td');
+        roleCell.setAttribute('data-label', 'Rol');
+        roleCell.innerHTML = `
+          <div class="user-name">${escapeHtml(user.membership?.role || '-')}</div>
+          <div class="tiny">Admin tenant: ${user.membership?.is_admin ? 'si' : 'no'}</div>
+        `;
+
+        const metricsCell = document.createElement('td');
+        metricsCell.setAttribute('data-label', 'Uso');
+        metricsCell.innerHTML = `
+          <div class="user-name">Runs: ${Number(user.metrics?.runs_total || 0)}</div>
+          <div class="tiny">OK: ${Number(user.metrics?.runs_completed || 0)} | KO: ${Number(user.metrics?.runs_failed || 0)}</div>
+          <div class="tiny">Ultimo: ${formatDate(user.metrics?.last_run_at)}</div>
+        `;
+
+        const actionsCell = document.createElement('td');
+        actionsCell.setAttribute('data-label', 'Acciones');
+        const actions = document.createElement('div');
+        actions.className = 'row-actions';
+
+        const roleSelect = document.createElement('select');
+        for (const role of state.availableRoles) {
+          const option = document.createElement('option');
+          option.value = role;
+          option.textContent = role;
+          if ((user.membership?.role || '').toLowerCase() === role) option.selected = true;
+          roleSelect.appendChild(option);
+        }
+
+        const roleBtn = document.createElement('button');
+        roleBtn.className = 'btn small alt';
+        roleBtn.textContent = 'Guardar rol';
+        roleBtn.addEventListener('click', async () => {
+          roleBtn.disabled = true;
+          try {
+            setStatus(`Actualizando rol para ${user.user_id}...`, 'info');
+            await apiPatch('/api/admin/memberships/role', {
+              tenant_id: user.tenant_id,
+              user_id: user.user_id,
+              role: roleSelect.value
+            });
+            showToast('Rol actualizado');
+            await loadOverview();
+          } catch (err) {
+            setStatus(String(err.message || err), 'error');
+          } finally {
+            roleBtn.disabled = false;
+          }
+        });
+
+        const statusBtn = document.createElement('button');
+        statusBtn.className = 'btn small';
+        statusBtn.textContent = user.membership?.enabled ? 'Desactivar' : 'Activar';
+        if (!user.membership?.enabled) statusBtn.classList.add('alt');
+        statusBtn.addEventListener('click', async () => {
+          statusBtn.disabled = true;
+          try {
+            setStatus(`${user.membership?.enabled ? 'Desactivando' : 'Activando'} membresia de ${user.user_id}...`, 'info');
+            await apiPatch('/api/admin/memberships/status', {
+              tenant_id: user.tenant_id,
+              user_id: user.user_id,
+              enabled: !user.membership?.enabled
+            });
+            showToast('Membresia actualizada');
+            await loadOverview();
+          } catch (err) {
+            setStatus(String(err.message || err), 'error');
+          } finally {
+            statusBtn.disabled = false;
+          }
+        });
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'btn small danger';
+        deleteBtn.textContent = 'Eliminar';
+        deleteBtn.addEventListener('click', async () => {
+          if (!confirm(`Eliminar membresia de ${user.email || user.user_id} en tenant ${user.tenant_name || user.tenant_id}?`)) return;
+          deleteBtn.disabled = true;
+          try {
+            setStatus(`Eliminando membresia de ${user.user_id}...`, 'info');
+            await apiDelete('/api/admin/memberships', {
+              tenant_id: user.tenant_id,
+              user_id: user.user_id
+            });
+            showToast('Membresia eliminada');
+            await loadOverview();
+          } catch (err) {
+            setStatus(String(err.message || err), 'error');
+          } finally {
+            deleteBtn.disabled = false;
+          }
+        });
+
+        actions.appendChild(roleSelect);
+        actions.appendChild(roleBtn);
+        actions.appendChild(statusBtn);
+        actions.appendChild(deleteBtn);
+        actionsCell.appendChild(actions);
+
+        tr.appendChild(tenantCell);
+        tr.appendChild(userCell);
+        tr.appendChild(membershipCell);
+        tr.appendChild(roleCell);
+        tr.appendChild(metricsCell);
+        tr.appendChild(actionsCell);
+        el.rows.appendChild(tr);
+      }
+    }
+
+    async function loadOverview() {
+      try {
+        await ensureAccessToken(false);
+      } catch (err) {
+        setStatus(String(err.message || err), 'error');
+        return;
+      }
+
+      setLoading(true);
+      setStatus('Cargando overview global...', 'info');
+
+      try {
+        const scope = state.tenantFilter ? `?tenant_id=${encodeURIComponent(state.tenantFilter)}` : '';
+        const data = await apiGet(`/api/admin/tenant-overview${scope}`);
+        state.users = Array.isArray(data.users) ? data.users : [];
+        state.tenants = Array.isArray(data.tenants) ? data.tenants : [];
+        state.summary = data.summary || {};
+        state.availableRoles = Array.isArray(data.available_roles) ? data.available_roles : ['viewer'];
+        state.actor = data.actor || null;
+
+        updateTenantFilterOptions();
+        drawSummary(state.summary || {});
+        renderTenants();
+        applyFilter();
+
+        const scopeLabel = state.tenantFilter
+          ? (state.tenants.find((t) => t.tenant_id === state.tenantFilter)?.name || state.tenantFilter)
+          : 'Todos los tenants';
+        el.scopePill.textContent = scopeLabel;
+        el.actorPill.textContent = state.actor?.email || state.actor?.id || '-';
+
+        setStatus(`Cargado: ${state.tenants.length} tenants y ${state.users.length} membresias.`, 'ok');
+      } catch (err) {
+        setStatus(String(err.message || err), 'error');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    function startIdleMonitor() {
+      if (state.monitorTimer) {
+        clearInterval(state.monitorTimer);
+      }
+      state.monitorTimer = setInterval(async () => {
+        const remainingMs = IDLE_TIMEOUT_MS - (Date.now() - state.lastActivityAt);
+        if (remainingMs <= 0) {
+          logoutToLogin('session_expired');
+          return;
+        }
+        if (remainingMs <= IDLE_WARNING_MS) {
+          setWarningVisible(true, Math.max(1, Math.ceil(remainingMs / 1000)));
+          return;
+        }
+        setWarningVisible(false, 0);
+      }, 1000);
+    }
+
+    function formatDate(raw) {
+      if (!raw) return '-';
+      const d = new Date(raw);
+      if (Number.isNaN(d.getTime())) return String(raw);
+      return d.toLocaleString();
+    }
+
+    function escapeHtml(value) {
+      return String(value || '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function escapeAttr(value) {
+      return String(value || '').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+    }
+
+    el.search.addEventListener('input', () => {
+      state.search = el.search.value || '';
+      applyFilter();
+    });
+
+    el.tenantFilter.addEventListener('change', async () => {
+      state.tenantFilter = el.tenantFilter.value || '';
+      await loadOverview();
+    });
+
+    el.reload.addEventListener('click', loadOverview);
+
+    for (const eventName of ACTIVITY_EVENTS) {
+      window.addEventListener(eventName, recordActivity, { passive: true });
+    }
+
+    if (el.sessionContinue) {
+      el.sessionContinue.addEventListener('click', async () => {
+        recordActivity();
+        try {
+          await refreshSession(true);
+        } catch (err) {
+          setStatus(String(err.message || err), 'error');
+          logoutToLogin('session_expired');
+        }
+      });
+    }
+
+    if (el.sessionLogout) {
+      el.sessionLogout.addEventListener('click', () => {
+        logoutToLogin('session_expired');
+      });
+    }
+
+    state.session = readStoredSession();
+    if (!state.session || !state.session.access_token) {
+      logoutToLogin('session_expired');
+    } else {
+      startIdleMonitor();
+      loadOverview();
+    }
+  </script>
+</body>
+</html>

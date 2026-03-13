@@ -1,0 +1,1693 @@
+﻿.shell {
+  min-height: 100vh;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 14% 8%, #d2f2ed 0%, transparent 34%),
+    radial-gradient(circle at 81% 19%, #ffe1bf 0%, transparent 35%),
+    linear-gradient(160deg, #f4efe6 0%, #f8f3eb 46%, #ebe3d6 100%);
+}
+
+.wrap {
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+.hero,
+.section {
+  border: 1px solid rgba(31, 36, 31, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 45px rgba(31, 36, 31, 0.12);
+}
+
+.hero {
+  padding: 18px 20px;
+  margin-bottom: 12px;
+}
+
+.heroTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.backLink {
+  color: #134f58;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.reload {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 8px 12px;
+  background: #0f9d91;
+  color: #fafffe;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.reload:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.title {
+  margin: 12px 0 0;
+  line-height: 1.05;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(1.4rem, 2.8vw, 2.18rem);
+  letter-spacing: 0.5px;
+  color: #1f241f;
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  color: #30423b;
+}
+
+.pills {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill {
+  border: 1px dashed rgba(31, 36, 31, 0.24);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.79rem;
+  background: rgba(255, 255, 255, 0.72);
+  color: #475047;
+}
+
+.pill strong {
+  color: #1f241f;
+}
+
+.status {
+  margin-top: 10px;
+  min-height: 22px;
+  font-size: 0.88rem;
+  color: #475047;
+  border-left: 3px solid rgba(15, 157, 145, 0.16);
+  padding-left: 8px;
+}
+
+.statusError {
+  color: #ad3f1f;
+  border-left-color: rgba(173, 63, 31, 0.4);
+}
+
+.statusOk {
+  color: #1f7a4e;
+  border-left-color: rgba(31, 122, 78, 0.4);
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.kpiCard {
+  border: 1px solid rgba(31, 36, 31, 0.16);
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 26px rgba(31, 36, 31, 0.08);
+}
+
+.kpiLabel {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.68px;
+  color: #475047;
+}
+
+.kpiValue {
+  margin-top: 4px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.2rem;
+  color: #152720;
+}
+
+.section {
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  letter-spacing: 0.72px;
+  text-transform: uppercase;
+  color: #2f4b41;
+}
+
+.creditSection {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 12px;
+}
+
+.creditSummary {
+  border: 1px solid rgba(31, 36, 31, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.creditMain {
+  display: grid;
+  gap: 4px;
+}
+
+.creditMainLabel {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.62px;
+  color: #4d635a;
+}
+
+.creditMainValue {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.45rem;
+  color: #0f5e59;
+}
+
+.creditHints {
+  display: grid;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: #30443c;
+}
+
+.creditAdjust {
+  border: 1px solid rgba(31, 36, 31, 0.14);
+  border-radius: 12px;
+  background: rgba(248, 252, 251, 0.9);
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.creditField {
+  display: grid;
+  gap: 5px;
+  font-size: 0.76rem;
+  color: #355047;
+}
+
+.creditInput {
+  border: 1px solid rgba(31, 36, 31, 0.24);
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  color: #1f2f29;
+  background: #fff;
+}
+
+.creditInput:focus {
+  outline: none;
+  border-color: rgba(15, 157, 145, 0.6);
+  box-shadow: 0 0 0 3px rgba(15, 157, 145, 0.15);
+}
+
+.creditAdjustBtn {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 9px 12px;
+  background: #0f9d91;
+  color: #fafffe;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.creditAdjustBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.billingSection {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 12px;
+}
+
+.billingCard {
+  border: 1px solid rgba(31, 36, 31, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.billingToggleRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #24453a;
+  font-weight: 700;
+}
+
+.billingToggleRow input {
+  width: 16px;
+  height: 16px;
+}
+
+.billingHint {
+  font-size: 0.76rem;
+  color: #45665a;
+}
+
+.billingGridTitle {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.62px;
+  color: #3f5b51;
+  font-weight: 700;
+}
+
+.billingGrid {
+  display: grid;
+  gap: 8px;
+}
+
+.billingAppRow {
+  border: 1px solid rgba(31, 36, 31, 0.12);
+  border-radius: 10px;
+  padding: 9px;
+  background: rgba(248, 252, 251, 0.85);
+  display: grid;
+  gap: 8px;
+}
+
+.billingAppTitle {
+  font-size: 0.85rem;
+  color: #163a2f;
+  font-weight: 700;
+}
+
+.billingInputGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.billingUsage {
+  font-size: 0.74rem;
+  color: #45665a;
+}
+
+.planCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+.planCard {
+  border: 1px solid rgba(31, 36, 31, 0.14);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 248, 246, 0.88));
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.planTitle {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #10241f;
+}
+
+.requestedBadge {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 6px;
+  border: 1px dashed rgba(19, 98, 88, 0.32);
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 0.72rem;
+  color: #136258;
+  background: rgba(19, 98, 88, 0.1);
+}
+
+.toggle {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  min-width: 98px;
+  padding: 7px 11px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.toggleOn {
+  color: #146744;
+  border-color: rgba(20, 103, 68, 0.26);
+  background: rgba(20, 103, 68, 0.12);
+}
+
+.toggleOff {
+  color: #8d3d24;
+  border-color: rgba(141, 61, 36, 0.3);
+  background: rgba(141, 61, 36, 0.12);
+}
+
+.userSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.userSectionHint {
+  font-size: 0.82rem;
+  color: #476057;
+}
+
+.userTableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  border-bottom: 1px solid rgba(31, 36, 31, 0.16);
+  padding: 11px 10px;
+  vertical-align: top;
+}
+
+.table th {
+  font-size: 0.73rem;
+  text-transform: uppercase;
+  letter-spacing: 0.62px;
+  color: #475047;
+  background: rgba(255, 255, 255, 0.86);
+  font-weight: 700;
+}
+
+.table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.57);
+}
+
+.tableRow {
+  cursor: pointer;
+  transition: background-color 0.18s ease;
+}
+
+.tableRow:hover td {
+  background: rgba(15, 157, 145, 0.08) !important;
+}
+
+.tableRowSelected td {
+  background: rgba(15, 157, 145, 0.12) !important;
+}
+
+.userPrimary {
+  font-weight: 700;
+  color: #1f2f29;
+}
+
+.userSecondary {
+  margin-top: 3px;
+  font-size: 0.78rem;
+  color: #475047;
+  word-break: break-all;
+}
+
+.selectUserBtn {
+  border: 1px solid rgba(15, 157, 145, 0.35);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #145f5a;
+  padding: 7px 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.selectUserBtnActive {
+  background: #0f9d91;
+  border-color: #0f9d91;
+  color: #f4fffd;
+}
+
+.activityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.activityTitle {
+  margin: 0;
+  font-size: 1.04rem;
+  color: #152720;
+}
+
+.activitySubtitle {
+  margin: 4px 0 0;
+  color: #3b5047;
+  font-size: 0.88rem;
+}
+
+.activityUserBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(15, 157, 145, 0.26);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #145f5a;
+  background: rgba(15, 157, 145, 0.09);
+}
+
+.activityStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
+
+.activityStatCard {
+  border: 1px solid rgba(31, 36, 31, 0.14);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  position: relative;
+  min-height: 86px;
+}
+
+.activityStatLabel {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.62px;
+  color: #52665d;
+}
+
+.activityStatValue {
+  margin-top: 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #173229;
+  line-height: 1.3;
+}
+
+.activityStatMeta {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.74rem;
+  color: #4f635a;
+}
+
+.activityStatIcon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: rgba(15, 157, 145, 0.8);
+}
+
+.membershipGrid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+.membershipCard {
+  border: 1px solid rgba(31, 36, 31, 0.14);
+  border-radius: 12px;
+  background: rgba(245, 251, 250, 0.86);
+  padding: 10px;
+}
+
+.membershipHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.membershipRole {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #1a4036;
+}
+
+.membershipStatus {
+  border: 1px solid rgba(31, 36, 31, 0.2);
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.55px;
+  color: #3f5047;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.membershipMetrics {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.76rem;
+  color: #3f5148;
+}
+
+.membershipCost {
+  margin-top: 8px;
+  font-size: 0.76rem;
+  color: #18433a;
+  font-weight: 700;
+}
+
+.activitySplit {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.activityPanel {
+  margin-top: 10px;
+  border: 1px solid rgba(31, 36, 31, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 10px;
+}
+
+.activityPanelTitle {
+  margin: 0 0 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #173229;
+  font-size: 0.92rem;
+}
+
+.projectList {
+  display: grid;
+  gap: 8px;
+}
+
+.projectRow {
+  border: 1px solid rgba(31, 36, 31, 0.13);
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(248, 252, 251, 0.85);
+}
+
+.projectTitle {
+  font-weight: 700;
+  color: #172f27;
+}
+
+.projectMeta {
+  margin-top: 3px;
+  font-size: 0.75rem;
+  color: #4b5d55;
+}
+
+.projectRight {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+  text-align: right;
+  font-size: 0.74rem;
+  color: #30443c;
+}
+
+.logList {
+  display: grid;
+  gap: 7px;
+  max-height: 278px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.logRow {
+  border: 1px solid rgba(31, 36, 31, 0.13);
+  border-radius: 10px;
+  padding: 8px;
+  background: rgba(248, 252, 251, 0.85);
+}
+
+.logMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #4b5d55;
+}
+
+.logLevel {
+  border-radius: 6px;
+  border: 1px solid rgba(31, 36, 31, 0.18);
+  padding: 2px 5px;
+  font-weight: 700;
+  color: #25453c;
+}
+
+.logMessage {
+  margin-top: 4px;
+  color: #1f2f29;
+  font-size: 0.82rem;
+}
+
+.logTime {
+  margin-top: 4px;
+  font-size: 0.73rem;
+  color: #4a5b53;
+}
+
+.runList {
+  display: grid;
+  gap: 8px;
+}
+
+.runCard {
+  border: 1px solid rgba(31, 36, 31, 0.14);
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(248, 252, 251, 0.9);
+}
+
+.runHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.runHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.runTitle {
+  font-weight: 700;
+  color: #172f27;
+}
+
+.runSubTitle {
+  margin-top: 3px;
+  font-size: 0.76rem;
+  color: #4b5d55;
+}
+
+.runCost {
+  border: 1px solid rgba(15, 157, 145, 0.35);
+  border-radius: 999px;
+  padding: 5px 10px;
+  color: #0f5e59;
+  font-weight: 700;
+  font-size: 0.74rem;
+  white-space: nowrap;
+  background: rgba(15, 157, 145, 0.08);
+}
+
+.runCredits {
+  border: 1px solid rgba(20, 103, 68, 0.32);
+  border-radius: 999px;
+  padding: 5px 10px;
+  color: #146744;
+  font-weight: 700;
+  font-size: 0.74rem;
+  white-space: nowrap;
+  background: rgba(20, 103, 68, 0.1);
+}
+
+.runDetailsBtn {
+  border: 1px solid rgba(31, 36, 31, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1f2f29;
+  padding: 6px 10px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.runDetailsBtn:hover {
+  border-color: rgba(15, 157, 145, 0.5);
+  color: #0f5e59;
+}
+
+.runDetailsBtnActive {
+  border-color: rgba(15, 157, 145, 0.6);
+  background: rgba(15, 157, 145, 0.1);
+  color: #0f5e59;
+}
+
+.runDetails {
+  margin-top: 9px;
+  border-top: 1px dashed rgba(31, 36, 31, 0.2);
+  padding-top: 8px;
+}
+
+.runMetaGrid {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.runMetaItem {
+  min-width: 0;
+  border: 1px solid rgba(31, 36, 31, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 6px 8px;
+  display: grid;
+  gap: 3px;
+}
+
+.runMetaLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.42px;
+  color: #607067;
+  font-weight: 700;
+}
+
+.runMetaValue {
+  font-size: 0.78rem;
+  color: #2b4339;
+  font-weight: 600;
+}
+
+.runMetaValueTruncate {
+  font-size: 0.78rem;
+  color: #2b4339;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.runArtifactsBlock {
+  margin-top: 10px;
+  border: 1px solid rgba(31, 36, 31, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.86);
+  padding: 10px;
+}
+
+.runArtifactsHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.runArtifactsTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 0.79rem;
+  font-weight: 700;
+  color: #1f3f35;
+}
+
+.runArtifactsReload {
+  border: 1px solid rgba(31, 36, 31, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #2f4a40;
+  padding: 5px 9px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.runArtifactsReload:disabled {
+  opacity: 0.62;
+  cursor: wait;
+}
+
+.runArtifactsList {
+  margin-top: 8px;
+  display: grid;
+  gap: 7px;
+}
+
+.runArtifactsLoading {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  color: #395148;
+}
+
+.runArtifactsSpinner {
+  animation: spin 0.9s linear infinite;
+}
+
+.runArtifactRow {
+  border: 1px solid rgba(31, 36, 31, 0.12);
+  border-radius: 8px;
+  background: rgba(248, 252, 251, 0.9);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.runArtifactMain {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 4px;
+}
+
+.runArtifactTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.runArtifactLabel {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.77rem;
+  font-weight: 700;
+  color: #1e362d;
+}
+
+.runArtifactClass {
+  border: 1px solid rgba(15, 157, 145, 0.35);
+  border-radius: 999px;
+  padding: 2px 7px;
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: #0f615b;
+  background: rgba(15, 157, 145, 0.12);
+}
+
+.runArtifactMeta {
+  display: grid;
+  gap: 2px;
+}
+
+.runArtifactMetaItem {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.71rem;
+  color: #4f6159;
+}
+
+.runArtifactDownloadBtn {
+  border: 1px solid rgba(20, 145, 132, 0.35);
+  border-radius: 8px;
+  background: rgba(20, 145, 132, 0.12);
+  color: #0f5f58;
+  padding: 7px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.runArtifactDownloadBtn:hover {
+  background: rgba(20, 145, 132, 0.18);
+  border-color: rgba(20, 145, 132, 0.52);
+}
+
+.runError {
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(173, 63, 31, 0.25);
+  background: rgba(173, 63, 31, 0.08);
+  padding: 7px 8px;
+  color: #8f2f15;
+  font-size: 0.78rem;
+}
+
+.runLogsBlock {
+  margin-top: 8px;
+}
+
+.runLogsTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1c3f35;
+  margin-bottom: 6px;
+}
+
+.empty {
+  text-align: center;
+  color: #475047;
+  padding: 20px;
+}
+
+.emptyInline {
+  color: #475047;
+  padding: 10px;
+  font-size: 0.84rem;
+}
+
+.toast {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  padding: 10px 13px;
+  border-radius: 10px;
+  border: 1px solid rgba(31, 36, 31, 0.24);
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 20px 45px rgba(31, 36, 31, 0.14);
+  transform: translateY(30px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  font-size: 0.86rem;
+  z-index: 20;
+}
+
+.toastVisible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.sessionOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(14, 24, 21, 0.56);
+  display: grid;
+  place-items: center;
+  z-index: 60;
+  padding: 16px;
+}
+
+.sessionDialog {
+  width: min(460px, 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(31, 36, 31, 0.2);
+  background: #fff;
+  box-shadow: 0 20px 45px rgba(31, 36, 31, 0.26);
+  padding: 18px;
+}
+
+.sessionTitle {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  color: #1f241f;
+}
+
+.sessionText {
+  margin: 0;
+  color: #475047;
+  font-size: 0.95rem;
+}
+
+.sessionActions {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 980px) {
+  .creditSection {
+    grid-template-columns: 1fr;
+  }
+
+  .billingSection {
+    grid-template-columns: 1fr;
+  }
+
+  .billingInputGroup {
+    grid-template-columns: 1fr;
+  }
+
+  .projectRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projectRight {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 800px) {
+  .shell {
+    padding: 10px;
+  }
+
+  .heroTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .userSectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .runHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .runHeaderRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .runArtifactRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .runArtifactDownloadBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .shell {
+    background:
+      radial-gradient(circle at 14% 8%, rgba(33, 112, 101, 0.36) 0%, transparent 34%),
+      radial-gradient(circle at 81% 19%, rgba(150, 93, 47, 0.28) 0%, transparent 35%),
+      linear-gradient(160deg, #0d1316 0%, #121d22 46%, #0f1a1f 100%);
+  }
+
+  .hero,
+  .section,
+  .kpiCard,
+  .creditSummary,
+  .creditAdjust,
+  .planCard,
+  .activityStatCard,
+  .membershipCard,
+  .activityPanel,
+  .projectRow,
+  .logRow,
+  .runCard {
+    border-color: rgba(177, 197, 190, 0.2);
+    background: rgba(14, 22, 27, 0.86);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.34);
+  }
+
+  .title,
+  .pill strong,
+  .kpiValue,
+  .planTitle,
+  .userPrimary,
+  .activityTitle,
+  .activityStatValue,
+  .membershipRole,
+  .activityPanelTitle,
+  .projectTitle,
+  .runTitle,
+  .runMetaValue,
+  .runMetaValueTruncate,
+  .runArtifactsTitle,
+  .runArtifactLabel,
+  .logMessage,
+  .sessionTitle {
+    color: #e5efea;
+  }
+
+  .subtitle,
+  .pill,
+  .status,
+  .kpiLabel,
+  .sectionTitle,
+  .userSectionHint,
+  .userSecondary,
+  .activitySubtitle,
+  .activityStatLabel,
+  .activityStatMeta,
+  .creditMainLabel,
+  .creditHints,
+  .creditField,
+  .billingHint,
+  .billingUsage,
+  .membershipMetrics,
+  .membershipStatus,
+  .membershipCost,
+  .projectMeta,
+  .projectRight,
+  .logMeta,
+  .logTime,
+  .runSubTitle,
+  .runMetaGrid,
+  .runMetaLabel,
+  .runArtifactMetaItem,
+  .runArtifactsLoading,
+  .runLogsTitle,
+  .empty,
+  .emptyInline,
+  .sessionText {
+    color: #aab7b0;
+  }
+
+  .backLink {
+    color: #7edfd7;
+  }
+
+  .reload {
+    background: #25b3a7;
+  }
+
+  .creditAdjustBtn {
+    background: #25b3a7;
+    color: #001f1c;
+  }
+
+  .pill {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(12, 20, 24, 0.82);
+  }
+
+  .status {
+    border-left-color: rgba(37, 179, 167, 0.2);
+  }
+
+  .statusError {
+    color: #ffab8c;
+    border-left-color: rgba(255, 171, 140, 0.45);
+  }
+
+  .statusOk {
+    color: #78d4a9;
+    border-left-color: rgba(120, 212, 169, 0.45);
+  }
+
+  .requestedBadge {
+    color: #8ee2db;
+    border-color: rgba(142, 226, 219, 0.42);
+    background: rgba(24, 96, 90, 0.2);
+  }
+
+  .toggleOn {
+    color: #78d4a9;
+    border-color: rgba(120, 212, 169, 0.38);
+    background: rgba(120, 212, 169, 0.14);
+  }
+
+  .toggleOff {
+    color: #ffb39a;
+    border-color: rgba(255, 179, 154, 0.34);
+    background: rgba(255, 179, 154, 0.12);
+  }
+
+  .table th,
+  .table td {
+    border-bottom-color: rgba(177, 197, 190, 0.2);
+  }
+
+  .table th {
+    color: #aab7b0;
+    background: rgba(18, 30, 36, 0.92);
+  }
+
+  .table tr:nth-child(even) td {
+    background: rgba(18, 28, 33, 0.57);
+  }
+
+  .tableRow:hover td {
+    background: rgba(28, 63, 58, 0.48) !important;
+  }
+
+  .tableRowSelected td {
+    background: rgba(37, 179, 167, 0.28) !important;
+  }
+
+  .selectUserBtn {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(9, 17, 20, 0.88);
+    color: #cde6df;
+  }
+
+  .selectUserBtnActive {
+    background: #25b3a7;
+    border-color: #25b3a7;
+    color: #001f1c;
+  }
+
+  .activityUserBadge {
+    border-color: rgba(37, 179, 167, 0.45);
+    color: #8ee2db;
+    background: rgba(37, 179, 167, 0.16);
+  }
+
+  .runCost {
+    border-color: rgba(37, 179, 167, 0.45);
+    color: #8ee2db;
+    background: rgba(37, 179, 167, 0.16);
+  }
+
+  .runCredits {
+    border-color: rgba(120, 212, 169, 0.4);
+    color: #78d4a9;
+    background: rgba(120, 212, 169, 0.14);
+  }
+
+  .creditMainValue {
+    color: #8ee2db;
+  }
+
+  .billingAppTitle {
+    color: #d7ebe3;
+  }
+
+  .creditInput {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(9, 17, 20, 0.9);
+    color: #e5efea;
+  }
+
+  .billingCard,
+  .billingAppRow {
+    border-color: rgba(177, 197, 190, 0.28);
+    background: rgba(11, 19, 23, 0.84);
+  }
+
+  .runDetailsBtn {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(9, 17, 20, 0.88);
+    color: #cde6df;
+  }
+
+  .runDetailsBtn:hover {
+    border-color: rgba(37, 179, 167, 0.65);
+    color: #8ee2db;
+  }
+
+  .runDetailsBtnActive {
+    border-color: rgba(37, 179, 167, 0.65);
+    background: rgba(37, 179, 167, 0.16);
+    color: #8ee2db;
+  }
+
+  .runDetails {
+    border-top-color: rgba(177, 197, 190, 0.34);
+  }
+
+  .runMetaItem,
+  .runArtifactsBlock,
+  .runArtifactRow {
+    border-color: rgba(177, 197, 190, 0.28);
+    background: rgba(11, 19, 23, 0.84);
+  }
+
+  .runArtifactsReload {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(9, 17, 20, 0.88);
+    color: #cde6df;
+  }
+
+  .runArtifactClass {
+    border-color: rgba(37, 179, 167, 0.42);
+    color: #8ee2db;
+    background: rgba(37, 179, 167, 0.16);
+  }
+
+  .runArtifactDownloadBtn {
+    border-color: rgba(37, 179, 167, 0.45);
+    color: #8ee2db;
+    background: rgba(37, 179, 167, 0.16);
+  }
+
+  .runArtifactDownloadBtn:hover {
+    border-color: rgba(37, 179, 167, 0.65);
+    background: rgba(37, 179, 167, 0.24);
+  }
+
+  .runError {
+    border-color: rgba(255, 171, 140, 0.45);
+    background: rgba(111, 41, 20, 0.34);
+    color: #ffb39a;
+  }
+
+  .logLevel {
+    border-color: rgba(177, 197, 190, 0.34);
+    color: #cde6df;
+  }
+
+  .toast {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(15, 23, 28, 0.97);
+    color: #e5efea;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.52);
+  }
+
+  .sessionOverlay {
+    background: rgba(7, 12, 15, 0.72);
+  }
+
+  .sessionDialog {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(15, 23, 28, 0.98);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.52);
+  }
+}
+
+/* Manual dark theme via data-app-theme */
+:global([data-app-theme='dark']) .shell {
+    background:
+      radial-gradient(circle at 14% 8%, rgba(33, 112, 101, 0.36) 0%, transparent 34%),
+      radial-gradient(circle at 81% 19%, rgba(150, 93, 47, 0.28) 0%, transparent 35%),
+      linear-gradient(160deg, #0d1316 0%, #121d22 46%, #0f1a1f 100%);
+  }
+
+  :global([data-app-theme='dark']) .hero,
+  :global([data-app-theme='dark']) .section,
+  :global([data-app-theme='dark']) .kpiCard,
+  :global([data-app-theme='dark']) .creditSummary,
+  :global([data-app-theme='dark']) .creditAdjust,
+  :global([data-app-theme='dark']) .planCard,
+  :global([data-app-theme='dark']) .activityStatCard,
+  :global([data-app-theme='dark']) .membershipCard,
+  :global([data-app-theme='dark']) .activityPanel,
+  :global([data-app-theme='dark']) .projectRow,
+  :global([data-app-theme='dark']) .logRow,
+  :global([data-app-theme='dark']) .runCard {
+    border-color: rgba(177, 197, 190, 0.2);
+    background: rgba(14, 22, 27, 0.86);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.34);
+  }
+
+  :global([data-app-theme='dark']) .title,
+  :global([data-app-theme='dark']) .pill strong,
+  :global([data-app-theme='dark']) .kpiValue,
+  :global([data-app-theme='dark']) .planTitle,
+  :global([data-app-theme='dark']) .userPrimary,
+  :global([data-app-theme='dark']) .activityTitle,
+  :global([data-app-theme='dark']) .activityStatValue,
+  :global([data-app-theme='dark']) .membershipRole,
+  :global([data-app-theme='dark']) .activityPanelTitle,
+  :global([data-app-theme='dark']) .projectTitle,
+  :global([data-app-theme='dark']) .runTitle,
+  :global([data-app-theme='dark']) .runMetaValue,
+  :global([data-app-theme='dark']) .runMetaValueTruncate,
+  :global([data-app-theme='dark']) .runArtifactsTitle,
+  :global([data-app-theme='dark']) .runArtifactLabel,
+  :global([data-app-theme='dark']) .logMessage,
+  :global([data-app-theme='dark']) .sessionTitle {
+    color: #e5efea;
+  }
+
+  :global([data-app-theme='dark']) .subtitle,
+  :global([data-app-theme='dark']) .pill,
+  :global([data-app-theme='dark']) .status,
+  :global([data-app-theme='dark']) .kpiLabel,
+  :global([data-app-theme='dark']) .sectionTitle,
+  :global([data-app-theme='dark']) .userSectionHint,
+  :global([data-app-theme='dark']) .userSecondary,
+  :global([data-app-theme='dark']) .activitySubtitle,
+  :global([data-app-theme='dark']) .activityStatLabel,
+  :global([data-app-theme='dark']) .activityStatMeta,
+  :global([data-app-theme='dark']) .creditMainLabel,
+  :global([data-app-theme='dark']) .creditHints,
+  :global([data-app-theme='dark']) .creditField,
+  :global([data-app-theme='dark']) .billingHint,
+  :global([data-app-theme='dark']) .billingUsage,
+  :global([data-app-theme='dark']) .membershipMetrics,
+  :global([data-app-theme='dark']) .membershipStatus,
+  :global([data-app-theme='dark']) .membershipCost,
+  :global([data-app-theme='dark']) .projectMeta,
+  :global([data-app-theme='dark']) .projectRight,
+  :global([data-app-theme='dark']) .logMeta,
+  :global([data-app-theme='dark']) .logTime,
+  :global([data-app-theme='dark']) .runSubTitle,
+  :global([data-app-theme='dark']) .runMetaGrid,
+  :global([data-app-theme='dark']) .runMetaLabel,
+  :global([data-app-theme='dark']) .runArtifactMetaItem,
+  :global([data-app-theme='dark']) .runArtifactsLoading,
+  :global([data-app-theme='dark']) .runLogsTitle,
+  :global([data-app-theme='dark']) .empty,
+  :global([data-app-theme='dark']) .emptyInline,
+  :global([data-app-theme='dark']) .sessionText {
+    color: #aab7b0;
+  }
+
+  :global([data-app-theme='dark']) .backLink {
+    color: #7edfd7;
+  }
+
+  :global([data-app-theme='dark']) .reload {
+    background: #25b3a7;
+  }
+
+  :global([data-app-theme='dark']) .creditAdjustBtn {
+    background: #25b3a7;
+    color: #001f1c;
+  }
+
+  :global([data-app-theme='dark']) .pill {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(12, 20, 24, 0.82);
+  }
+
+  :global([data-app-theme='dark']) .status {
+    border-left-color: rgba(37, 179, 167, 0.2);
+  }
+
+  :global([data-app-theme='dark']) .statusError {
+    color: #ffab8c;
+    border-left-color: rgba(255, 171, 140, 0.45);
+  }
+
+  :global([data-app-theme='dark']) .statusOk {
+    color: #78d4a9;
+    border-left-color: rgba(120, 212, 169, 0.45);
+  }
+
+  :global([data-app-theme='dark']) .requestedBadge {
+    color: #8ee2db;
+    border-color: rgba(142, 226, 219, 0.42);
+    background: rgba(24, 96, 90, 0.2);
+  }
+
+  :global([data-app-theme='dark']) .toggleOn {
+    color: #78d4a9;
+    border-color: rgba(120, 212, 169, 0.38);
+    background: rgba(120, 212, 169, 0.14);
+  }
+
+  :global([data-app-theme='dark']) .toggleOff {
+    color: #ffb39a;
+    border-color: rgba(255, 179, 154, 0.34);
+    background: rgba(255, 179, 154, 0.12);
+  }
+
+  :global([data-app-theme='dark']) .table th,
+  :global([data-app-theme='dark']) .table td {
+    border-bottom-color: rgba(177, 197, 190, 0.2);
+  }
+
+  :global([data-app-theme='dark']) .table th {
+    color: #aab7b0;
+    background: rgba(18, 30, 36, 0.92);
+  }
+
+  :global([data-app-theme='dark']) .table tr:nth-child(even) td {
+    background: rgba(18, 28, 33, 0.57);
+  }
+
+  :global([data-app-theme='dark']) .tableRow:hover td {
+    background: rgba(28, 63, 58, 0.48) !important;
+  }
+
+  :global([data-app-theme='dark']) .tableRowSelected td {
+    background: rgba(37, 179, 167, 0.28) !important;
+  }
+
+  :global([data-app-theme='dark']) .selectUserBtn {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(9, 17, 20, 0.88);
+    color: #cde6df;
+  }
+
+  :global([data-app-theme='dark']) .selectUserBtnActive {
+    background: #25b3a7;
+    border-color: #25b3a7;
+    color: #001f1c;
+  }
+
+  :global([data-app-theme='dark']) .activityUserBadge {
+    border-color: rgba(37, 179, 167, 0.45);
+    color: #8ee2db;
+    background: rgba(37, 179, 167, 0.16);
+  }
+
+  :global([data-app-theme='dark']) .runCost {
+    border-color: rgba(37, 179, 167, 0.45);
+    color: #8ee2db;
+    background: rgba(37, 179, 167, 0.16);
+  }
+
+  :global([data-app-theme='dark']) .runCredits {
+    border-color: rgba(120, 212, 169, 0.4);
+    color: #78d4a9;
+    background: rgba(120, 212, 169, 0.14);
+  }
+
+  :global([data-app-theme='dark']) .creditMainValue {
+    color: #8ee2db;
+  }
+
+  :global([data-app-theme='dark']) .billingAppTitle {
+    color: #d7ebe3;
+  }
+
+  :global([data-app-theme='dark']) .creditInput {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(9, 17, 20, 0.9);
+    color: #e5efea;
+  }
+
+  :global([data-app-theme='dark']) .billingCard,
+  :global([data-app-theme='dark']) .billingAppRow {
+    border-color: rgba(177, 197, 190, 0.28);
+    background: rgba(11, 19, 23, 0.84);
+  }
+
+  :global([data-app-theme='dark']) .runDetailsBtn {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(9, 17, 20, 0.88);
+    color: #cde6df;
+  }
+
+  :global([data-app-theme='dark']) .runDetailsBtn:hover {
+    border-color: rgba(37, 179, 167, 0.65);
+    color: #8ee2db;
+  }
+
+  :global([data-app-theme='dark']) .runDetailsBtnActive {
+    border-color: rgba(37, 179, 167, 0.65);
+    background: rgba(37, 179, 167, 0.16);
+    color: #8ee2db;
+  }
+
+  :global([data-app-theme='dark']) .runDetails {
+    border-top-color: rgba(177, 197, 190, 0.34);
+  }
+
+  :global([data-app-theme='dark']) .runMetaItem,
+  :global([data-app-theme='dark']) .runArtifactsBlock,
+  :global([data-app-theme='dark']) .runArtifactRow {
+    border-color: rgba(177, 197, 190, 0.28);
+    background: rgba(11, 19, 23, 0.84);
+  }
+
+  :global([data-app-theme='dark']) .runArtifactsReload {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(9, 17, 20, 0.88);
+    color: #cde6df;
+  }
+
+  :global([data-app-theme='dark']) .runArtifactClass {
+    border-color: rgba(37, 179, 167, 0.42);
+    color: #8ee2db;
+    background: rgba(37, 179, 167, 0.16);
+  }
+
+  :global([data-app-theme='dark']) .runArtifactDownloadBtn {
+    border-color: rgba(37, 179, 167, 0.45);
+    color: #8ee2db;
+    background: rgba(37, 179, 167, 0.16);
+  }
+
+  :global([data-app-theme='dark']) .runArtifactDownloadBtn:hover {
+    border-color: rgba(37, 179, 167, 0.65);
+    background: rgba(37, 179, 167, 0.24);
+  }
+
+  :global([data-app-theme='dark']) .runError {
+    border-color: rgba(255, 171, 140, 0.45);
+    background: rgba(111, 41, 20, 0.34);
+    color: #ffb39a;
+  }
+
+  :global([data-app-theme='dark']) .logLevel {
+    border-color: rgba(177, 197, 190, 0.34);
+    color: #cde6df;
+  }
+
+  :global([data-app-theme='dark']) .toast {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(15, 23, 28, 0.97);
+    color: #e5efea;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.52);
+  }
+
+  :global([data-app-theme='dark']) .sessionOverlay {
+    background: rgba(7, 12, 15, 0.72);
+  }
+
+  :global([data-app-theme='dark']) .sessionDialog {
+    border-color: rgba(177, 197, 190, 0.34);
+    background: rgba(15, 23, 28, 0.98);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.52);
+  }

@@ -1,0 +1,43 @@
+# ============================================================================
+# REQUISITOS DE LA PIPELINE DE PRESUPUESTOS
+# ============================================================================
+# Este archivo contiene todas las librerías necesarias para ejecutar la 
+# pipeline completa: extracción, mapeo, auditoría y generación de reportes.
+#
+# Instalación: pip install -r requirements.txt
+# ============================================================================
+
+# --- APIS Y MODELOS LLM ---
+google-generativeai>=0.3.0          # Google Generative AI (Gemini API)
+
+# --- PROCESAMIENTO DE PDFs ---
+PyMuPDF>=1.23.0                    # fitz - Extracción de texto de PDFs
+
+# --- DATOS Y EXCEL ---
+pandas>=2.0.0                      # Manipulación de DataFrames y Excel
+openpyxl>=3.0.0                    # Escritura de archivos Excel (.xlsx)
+XlsxWriter>=3.2.0                  # Excel writer engine used by report builder
+
+# --- VALIDACIÓN DE DATOS ---
+pydantic>=2.0.0                    # Validación y tipado de modelos de extracción
+
+# --- UTILIDADES ---
+python-dotenv>=1.0.0               # Cargar variables de entorno desde .env
+requests>=2.31.0                   # HTTP calls to LandingAI ADE APIs
+
+# --- API SERVER ---
+fastapi>=0.111.0                   # Web framework for the HTTP API
+uvicorn[standard]>=0.29.0          # ASGI server to run FastAPI
+python-multipart>=0.0.9            # Required for UploadFile / multipart forms
+
+# --- TESTING ---
+pytest>=7.0.0                      # Test runner
+
+# ============================================================================
+# NOTAS ADICIONALES:
+# ============================================================================
+# - Asegúrate de tener GOOGLE_API_KEY en tu archivo .env
+# - Para extracción con LandingAI ADE: ADE_API_KEY o VISION_AGENT_API_KEY
+# - Los agentes requieren acceso a la API de Google Generative AI
+# - Iniciar servidor: uvicorn server:app --host 0.0.0.0 --port 8000 --reload
+# ============================================================================

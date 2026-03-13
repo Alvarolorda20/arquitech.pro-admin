@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Admin Login</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+    :root {
+      color-scheme: light;
+      --bg: #131a17;
+      --bg2: #1d2723;
+      --card: rgba(255, 255, 255, 0.96);
+      --line: rgba(25, 33, 28, 0.18);
+      --ink: #19201c;
+      --ink-soft: #48534c;
+      --label: #24302a;
+      --accent: #0f9d91;
+      --accent-strong: #087068;
+      --danger: #b04a2a;
+      --ok: #146b47;
+      --input-bg: #fff;
+      --input-ink: #19201c;
+      --radius: 16px;
+      --shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'IBM Plex Sans', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(15,157,145,.38), transparent 38%),
+        radial-gradient(circle at 90% 8%, rgba(255,193,111,.3), transparent 34%),
+        linear-gradient(140deg, var(--bg) 0%, var(--bg2) 50%, #17201d 100%);
+      display: grid;
+      place-items: center;
+      padding: 18px;
+    }
+
+    .card {
+      width: min(480px, 100%);
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 2px);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 26px 24px;
+      position: relative;
+      overflow: hidden;
+      animation: rise .5s ease;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      right: -66px;
+      top: -72px;
+      background: radial-gradient(circle, rgba(15,157,145,.2) 0%, transparent 72%);
+      pointer-events: none;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-family: 'Archivo Black', sans-serif;
+      line-height: 1.06;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      font-size: clamp(1.3rem, 3.3vw, 2rem);
+    }
+
+    p {
+      margin: 0 0 18px;
+      color: var(--ink-soft);
+      font-size: .95rem;
+    }
+
+    .field { margin-bottom: 12px; }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: .86rem;
+      color: var(--label);
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 11px 12px;
+      font-size: .94rem;
+      outline: none;
+      background: var(--input-bg);
+      color: var(--input-ink);
+    }
+
+    input:focus {
+      border-color: rgba(15,157,145,.6);
+      box-shadow: 0 0 0 3px rgba(15,157,145,.15);
+    }
+
+    .btn {
+      width: 100%;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      padding: 11px 12px;
+      font-weight: 700;
+      background: var(--accent);
+      color: #f7fffd;
+      cursor: pointer;
+      transition: transform .13s ease, background .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); background: var(--accent-strong); }
+    .btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    .status {
+      min-height: 20px;
+      margin-top: 12px;
+      font-size: .86rem;
+      color: var(--ink-soft);
+    }
+
+    .status.error { color: var(--danger); }
+    .status.ok { color: var(--ok); }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --bg: #070c0b;
+        --bg2: #0d1413;
+        --card: rgba(13, 20, 18, 0.94);
+        --line: rgba(194, 214, 206, 0.24);
+        --ink: #e9f1ee;
+        --ink-soft: #b5c5bf;
+        --label: #cddbd6;
+        --accent: #25b3a7;
+        --accent-strong: #1a8e85;
+        --danger: #ff9f80;
+        --ok: #7ad6ad;
+        --input-bg: rgba(8, 14, 12, 0.88);
+        --input-ink: #e9f1ee;
+        --shadow: 0 25px 55px rgba(0, 0, 0, 0.6);
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 10% 20%, rgba(37,179,167,.2), transparent 38%),
+          radial-gradient(circle at 90% 8%, rgba(255,193,111,.15), transparent 34%),
+          linear-gradient(140deg, var(--bg) 0%, var(--bg2) 50%, #0a1210 100%);
+      }
+
+      .card::after {
+        background: radial-gradient(circle, rgba(37,179,167,.18) 0%, transparent 72%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Acceso Admin Global</h1>
+    <p>Inicia sesion con tu usuario admin. El sistema obtendra el token y te llevara al panel de membresias.</p>
+
+    <form id="login-form">
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="username" required />
+      </div>
+      <div class="field">
+        <label for="password">Contrasena</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required />
+      </div>
+      <button id="submit" class="btn" type="submit">Entrar al panel</button>
+      <div id="status" class="status"></div>
+    </form>
+  </main>
+
+  <script>
+    const ADMIN_SESSION_KEY = 'admin_session_v1';
+    const urlParams = new URLSearchParams(window.location.search);
+    const form = document.getElementById('login-form');
+    const statusEl = document.getElementById('status');
+    const submitBtn = document.getElementById('submit');
+
+    function setStatus(text, kind) {
+      statusEl.textContent = text || '';
+      statusEl.className = 'status';
+      if (kind === 'error') statusEl.classList.add('error');
+      if (kind === 'ok') statusEl.classList.add('ok');
+    }
+
+    async function loginAdmin(email, password) {
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(body.detail || `HTTP ${res.status}`);
+      }
+      return body;
+    }
+
+    function computeExpiresAtMs(payload) {
+      const rawExpiresAt = Number(payload.expires_at || 0);
+      if (Number.isFinite(rawExpiresAt) && rawExpiresAt > 0) {
+        if (rawExpiresAt > 1000000000000) return Math.floor(rawExpiresAt);
+        return Math.floor(rawExpiresAt * 1000);
+      }
+      const rawExpiresIn = Number(payload.expires_in || 0);
+      if (Number.isFinite(rawExpiresIn) && rawExpiresIn > 0) {
+        return Date.now() + Math.floor(rawExpiresIn * 1000);
+      }
+      return undefined;
+    }
+
+    function storeAdminSession(payload) {
+      const accessToken = String(payload.access_token || '').trim();
+      const refreshToken = String(payload.refresh_token || '').trim();
+      if (!accessToken) return;
+      const session = {
+        access_token: accessToken,
+        refresh_token: refreshToken || undefined,
+        token_type: String(payload.token_type || 'bearer').trim() || 'bearer',
+        expires_at_ms: computeExpiresAtMs(payload),
+      };
+      window.localStorage.setItem(ADMIN_SESSION_KEY, JSON.stringify(session));
+    }
+
+    const reason = String(urlParams.get('reason') || '').trim().toLowerCase();
+    if (reason === 'session_expired') {
+      setStatus('Sesion cerrada por inactividad. Vuelve a iniciar sesion.', 'error');
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = String(document.getElementById('email').value || '').trim();
+      const password = String(document.getElementById('password').value || '');
+      if (!email || !password) {
+        setStatus('Introduce email y contrasena.', 'error');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      setStatus('Verificando credenciales...', null);
+      try {
+        const payload = await loginAdmin(email, password);
+        const token = String(payload.access_token || '').trim();
+        if (!token) throw new Error('No se recibio access_token.');
+        storeAdminSession(payload);
+        setStatus('Login correcto. Redirigiendo...', 'ok');
+        window.location.href = '/admin/memberships';
+      } catch (err) {
+        setStatus(String(err.message || err), 'error');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

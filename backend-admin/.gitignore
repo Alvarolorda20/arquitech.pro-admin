@@ -1,0 +1,82 @@
+﻿# Entorno virtual
+venv/
+env/
+ENV/
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node / Playwright
+node_modules/
+playwright-report/
+test-results/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Pipeline outputs (runtime / por ejecución)
+/history/
+/temp_processing/
+/output/
+/COMPARATIVO_MAESTRO_FINAL.xlsx
+/mapped_pauta.json
+/src/output/
+/src/data/
+
+# Entorno virtual (local)
+.venv/
+
+# Node / Playwright artifacts
+blob-report/
+
+# Test / lint caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

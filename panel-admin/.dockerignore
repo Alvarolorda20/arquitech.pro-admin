@@ -1,0 +1,23 @@
+# VCS / editor
+.git
+.git_backup_*
+.github
+.vscode
+
+# Build / dependencies
+node_modules/
+.next/
+
+# Local env / secrets
+.env
+.env.*
+!.env.example
+
+# Test/dev artifacts
+playwright-report/
+test-results/
+tests/
+coverage/
+*.log
+tsconfig.tsbuildinfo
+

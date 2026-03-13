@@ -1,0 +1,22 @@
+:root {
+  --mb-background: var(--g-color-base-background);
+  --mb-surface: var(--g-color-base-float);
+  --mb-surface-muted: var(--g-color-base-light);
+  --mb-border: var(--g-color-line-generic);
+  --mb-text: var(--g-color-text-primary);
+  --mb-text-muted: var(--g-color-text-secondary);
+  --mb-brand: var(--g-color-base-brand);
+  --mb-brand-strong: var(--g-color-base-brand-hover);
+  --mb-success-bg: var(--g-color-base-positive-light);
+  --mb-success-text: var(--g-color-text-positive-heavy);
+  --mb-warning-bg: var(--g-color-base-warning-light);
+  --mb-warning-text: var(--g-color-text-warning-heavy);
+  --mb-danger-bg: var(--g-color-base-danger-light);
+  --mb-danger-text: var(--g-color-text-danger-heavy);
+}
+
+.mb-theme {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, var(--g-color-base-light) 0%, var(--mb-background) 45%);
+  color: var(--mb-text);
+}

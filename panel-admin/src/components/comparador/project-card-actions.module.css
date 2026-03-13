@@ -1,0 +1,194 @@
+.actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.modal {
+  position: relative;
+  width: min(500px, calc(100vw - 32px));
+  padding: 16px 20px 18px;
+  display: grid;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #e3e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 55px rgba(13, 20, 34, 0.24);
+}
+
+.modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #eb5b5b;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: center;
+}
+
+.modalTitle {
+  margin: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(21px, 3vw, 26px);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #1d2a3f;
+  text-align: center;
+}
+
+.modalTitleIcon {
+  width: 30px;
+  height: 30px;
+  color: #1d2a3f;
+  flex-shrink: 0;
+}
+
+.modalBody {
+  display: grid;
+  gap: 10px;
+}
+
+.modalText {
+  margin: 0;
+  justify-self: center;
+  max-width: 48ch;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.38;
+  color: #2f3a50;
+}
+
+.modalText strong {
+  color: #1d2a3f;
+  font-weight: 700;
+}
+
+.modalInputLabel {
+  margin: 0;
+  justify-self: center;
+  font-size: 13px;
+  line-height: 1.35;
+  color: #3f4e69;
+  font-weight: 500;
+}
+
+.modalInput {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #c9d1de;
+  border-radius: 10px;
+  padding: 0 12px;
+  font-size: 16px;
+  color: #1d2a3f;
+  background: #ffffff;
+  outline: none;
+}
+
+.modalInput:focus {
+  border-color: #6f7d98;
+  box-shadow: 0 0 0 2px rgba(64, 96, 154, 0.15);
+}
+
+.modalFooter {
+  margin-top: 2px;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cancelButton {
+  min-width: 112px;
+}
+
+.deleteButton {
+  min-width: 176px;
+  background-color: #ef5858 !important;
+  border-color: #ef5858 !important;
+  color: #ffffff !important;
+}
+
+.deleteButton :global(.g-button__text) {
+  color: #ffffff !important;
+}
+
+.deleteButton:hover {
+  background-color: #df4848 !important;
+  border-color: #df4848 !important;
+}
+
+.deleteButton:active {
+  background-color: #cb3f3f !important;
+  border-color: #cb3f3f !important;
+}
+
+.deleteButton:disabled {
+  background-color: #ef5858 !important;
+  border-color: #ef5858 !important;
+  color: #ffffff !important;
+  opacity: 0.55;
+}
+
+@media (max-width: 640px) {
+  .modal {
+    width: min(500px, calc(100vw - 24px));
+    padding: 14px 12px 14px;
+    gap: 10px;
+  }
+
+  .modalTitle {
+    font-size: 22px;
+  }
+
+  .modalTitleIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .modalText {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .modalInput {
+    height: 38px;
+    font-size: 15px;
+  }
+
+  .cancelButton,
+  .deleteButton {
+    min-width: 148px;
+  }
+}
+
+:global(:is([data-app-theme='dark'], [data-workspace-theme='dark'])) .modalTitle {
+  color: #f3f5fb;
+}
+
+:global(:is([data-app-theme='dark'], [data-workspace-theme='dark'])) .modal {
+  background: #111827;
+  border-color: #273244;
+}
+
+:global(:is([data-app-theme='dark'], [data-workspace-theme='dark'])) .modalText {
+  color: #c4c9d4;
+}
+
+:global(:is([data-app-theme='dark'], [data-workspace-theme='dark'])) .modalText strong {
+  color: #f3f5fb;
+}

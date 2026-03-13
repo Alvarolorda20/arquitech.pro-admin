@@ -1,0 +1,43 @@
+# VCS / editor
+.git
+.git_backup_*
+.github
+.vscode
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+
+# Local env / secrets
+.env
+.env.*
+!.env.example
+
+# Runtime artifacts
+history/
+output/
+temp_processing/
+src/output/
+src/data/
+output_limpio.json
+*.log
+
+# Local test/dev artifacts
+node_modules/
+playwright-report/
+test-results/
+pdfs/
+tests/
+playwright.config.ts
+package.json
+package-lock.json
+
+# Docs and local backups not needed in runtime image
+docs/
+.git_backup_*/

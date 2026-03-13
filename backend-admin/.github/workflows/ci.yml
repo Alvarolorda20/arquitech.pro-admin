@@ -1,0 +1,88 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Budget Comparator — CI Pipeline
+# ─────────────────────────────────────────────────────────────────────────────
+# Runs lint, typecheck, and unit tests for both Backend (Python) and
+# Frontend (Next.js / TypeScript).  Triggered on push and PR to main.
+#
+# Required repository secrets:
+#   GOOGLE_API_KEY          — Gemini API key (backend tests that hit the API)
+#   SUPABASE_URL            — Supabase project URL
+#   SUPABASE_SERVICE_KEY    — Supabase service-role key
+#   NEXT_PUBLIC_SUPABASE_URL        — (frontend .env)
+#   NEXT_PUBLIC_SUPABASE_ANON_KEY   — (frontend .env)
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+# ─── Backend ─────────────────────────────────────────────────────────────────
+
+jobs:
+  backend:
+    name: Backend — lint & test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Backend/comparativa-presupuestos-backend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: Backend/comparativa-presupuestos-backend/requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run pytest
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: python -m pytest tests/ -v --tb=short
+
+  # ─── Frontend ────────────────────────────────────────────────────────────────
+
+  frontend:
+    name: Frontend — lint, typecheck & test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Frontend/comparador-presupuestos
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: Frontend/comparador-presupuestos/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm run test:unit

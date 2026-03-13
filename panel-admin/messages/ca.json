@@ -1,0 +1,576 @@
+{
+  "auth": {
+    "brand": "Architech.io",
+    "title": {
+      "login": "Benvingut",
+      "signup": "Crear compte",
+      "reset": "Restablir contrasenya"
+    },
+    "subtitle": {
+      "login": "Inicia sessió per accedir al teu workspace d'Architech.io.",
+      "signup": "Registra't per accedir al teu workspace d'Architech.io.",
+      "reset": "Introdueix el teu email i t'enviarem un enllaç de restabliment."
+    },
+    "submit": {
+      "login": "Inicia sessió",
+      "signup": "Crear compte",
+      "reset": "Envia enllaç"
+    },
+    "field": {
+      "firstName": "Nom",
+      "lastName": "Cognoms",
+      "email": "Email",
+      "password": "Contrasenya",
+      "confirmPassword": "Confirmar contrasenya",
+      "passwordHint": "Almenys 8 caràcters"
+    },
+    "placeholder": {
+      "firstName": "El teu nom",
+      "lastName": "Els teus cognoms",
+      "email": "tu@exemple.com",
+      "passwordCreate": "Crea una contrasenya",
+      "passwordCurrent": "La teva contrasenya",
+      "passwordRepeat": "Repeteix la teva contrasenya"
+    },
+    "toggle": {
+      "show": "Mostra la contrasenya",
+      "hide": "Amaga la contrasenya"
+    },
+    "forgot": "Has oblidat la contrasenya?",
+    "resetLink": "Restablir contrasenya",
+    "or": "o",
+    "google": "Continua amb Google",
+    "successTitle": "Operació completada",
+    "inviteAccess": {
+      "title": "Completa el teu accés",
+      "subtitle": "Defineix la teva contrasenya per activar l'accés al workspace on t'han convidat.",
+      "submit": "Desar contrasenya i continuar"
+    },
+    "footer": {
+      "newHere": "Ets nou?",
+      "createAccount": "Crea un compte",
+      "haveAccount": "Ja tens compte?",
+      "signIn": "Inicia sessió",
+      "backToSignIn": "Torna a iniciar sessió"
+    }
+  },
+  "errors": {
+    "sessionExpired": "La sessió ha caducat. Torna a iniciar sessió.",
+    "invalidCredentials": "Email o contrasenya incorrectes. Torna-ho a intentar o restableix la contrasenya.",
+    "emailNotConfirmed": "Revisa la bústia i confirma el teu email abans d'iniciar sessió.",
+    "rateLimited": "Massa intents. Espera uns minuts abans de tornar-ho a intentar.",
+    "alreadyRegistered": "Aquest email ja té un compte. Inicia sessió.",
+    "missingLoginFields": "Email i contrasenya són obligatoris.",
+    "missingSignupFields": "Email, contrasenya i confirmació són obligatoris.",
+    "missingProfileName": "Nom i cognoms són obligatoris.",
+    "missingEmail": "L'email és obligatori.",
+    "passwordMinLength": "La contrasenya ha de tenir almenys 8 caràcters.",
+    "passwordsDoNotMatch": "Les contrasenyes no coincideixen.",
+    "unknown": "S'ha produït un error. Torna-ho a intentar."
+  },
+  "comparador": {
+    "title": "Comparador de Pressupostos",
+    "subtitle": "Puja la pauta mestra i els pressupostos en PDF. Genera el comparatiu en Excel.",
+    "step1Label": "Establir Pauta - Excel Mestre",
+    "step1Desc": "Fitxer Excel de referència que s'utilitzarà com a pauta.",
+    "step2Label": "Carregar Ofertes - PDFs de Proveidors",
+    "step2Desc": "Puja un o diversos PDFs amb pressupostos.",
+    "step3Label": "Generar Comparatiu",
+    "step3Desc": "El sistema analitza les partides i genera un Excel comparatiu estructurat.",
+    "readiness": {
+      "excel": "Pauta Excel carregada",
+      "noOffers": "Cap oferta carregada",
+      "offers": "{count, plural, one {# oferta llesta} other {# ofertes llestes}}",
+      "projectConnected": "Projecte actiu connectat"
+    },
+    "generate": "Generar Comparatiu",
+    "sending": "Enviant fitxers al servidor...",
+    "processing": "Pipeline iniciat. Processant...",
+    "completed": "Procés completat!",
+    "failed": "No s'ha pogut completar la comparació. Torna-ho a provar.",
+    "errNoBackend": "No s'ha pogut iniciar la comparació. Torna-ho a provar d'aqui a uns minuts.",
+    "errInvalidFiles": "Fitxers no vàlids.",
+    "errNetwork": "No s'ha pogut connectar per iniciar la comparació. Torna-ho a provar.",
+    "newComparativa": "Nova comparativa",
+    "errSessionExpired": "La sessió ha caducat. Torna a iniciar sessió.",
+    "recovery": {
+      "title": "Reintent de l'Últim intent fallit",
+      "subtitle": "Pots reintentar fent servir exactament els mateixos documents desats.",
+      "pauta": "Pauta: {name}",
+      "pdfs": "{count, plural, one {# PDF detectat} other {# PDFs detectats}}",
+      "cta": "Reintentar amb els mateixos documents"
+    },
+    "creditEstimate": {
+      "title": "Cost aproximat",
+      "loading": "Calculant credits...",
+      "pending": "Puja pauta i ofertes per estimar els credits del run.",
+      "main": "Es descomptaran aprox {credits} credits.",
+      "detail": "{files} fitxer(s) | {mb} MB totals",
+      "proportional": "El pes es calcula per fitxer (proporcional)."
+    },
+    "summary": {
+      "title": "Execució completada: fitxers i temps",
+      "subtitle": "Consulta els fitxers d'aquesta execució en ordre de proces: pauta, pressupostos i resultat final.",
+      "outputFile": "Fitxer generat: {name}",
+      "pauta": "Pauta utilitzada: {name}",
+      "pdfs": "{count, plural, one {# PDF utilitzat} other {# PDFs utilitzats}}",
+      "filesTitle": "Fitxers de l'execució",
+      "previewTitle": "Previsualització",
+      "previewHint": "Vista de referència ({type}) del fitxer seleccionat.",
+      "previewNote": "Previsualització orientativa basada en el tipus de fitxer.",
+      "fileRoleOutput": "Resultat comparatiu",
+      "fileRolePauta": "Pauta mestra",
+      "fileRolePdf": "Pressupost proveidor",
+      "startedAtLabel": "Inici",
+      "finishedAtLabel": "Fi",
+      "durationLabel": "Durada",
+      "startedAt": "Inici: {date}",
+      "finishedAt": "Fi: {date}",
+      "duration": "Durada: {value}",
+      "downloadFile": "Descarregar fitxer",
+      "download": "Descarregar resultat",
+      "notAvailable": "No disponible",
+      "rerunTitle": "Rerun amb canvis de PDF",
+      "rerunHint": "Puja només els PDFs que vulguis canviar. Els no canviats reutilitzaran l'extracció i el mapeig del run anterior.",
+      "rerunCta": "Llancar re execució",
+      "rerunConfigureCta": "Re execució",
+      "rerunBackCta": "Tancar",
+      "rerunSelectionTitle": "Seleccio de PDFs existents",
+      "fixedPautaTitle": "Pauta fixa (no editable)",
+      "rerunNoOriginalPdfs": "No hi ha PDFs del run anterior.",
+      "rerunModeAudit": "Re executar auditoria/jutge",
+      "rerunModeReuse": "Reutilitzar sense re executar"
+    }
+  },
+  "excel": {
+    "ready": "Fitxer llest",
+    "dragPrompt": "Arrossega el fitxer Excel o",
+    "select": "selecciona'l",
+    "formats": ".xlsx - .xls"
+  },
+  "pdf": {
+    "dragPrompt": "Arrossega els PDFs de les ofertes o",
+    "select": "selecciona'ls",
+    "hint": "Pots pujar multiples fitxers - Només .pdf"
+  },
+  "processing": {
+    "title": "Processant - això pot tardar diversos minuts.",
+    "initializing": "Iniciant...",
+    "footer": "En procés... pots sortir i tornar quan vulguis"
+  },
+  "results": {
+    "title": "Comparatiu llest!",
+    "readyMsg": "El fitxer {filename} esta llest per descarregar.",
+    "download": "Descarregar Excel Comparatiu"
+  },
+  "home": {
+    "landing": {
+      "kicker": "Plataforma multiempresa",
+      "title": "Accedeix al teu espai de treball",
+      "subtitle": "Centralitza processos i eines del teu equip en un sol espai de treball.",
+      "cards": {
+        "login": {
+          "title": "Iniciar sessi\u00f3",
+          "text": "Ja tens compte. Entra al panell.",
+          "cta": "Iniciar sessi\u00f3"
+        },
+        "join": {
+          "title": "Unir-me a empresa",
+          "text": "Accedeix amb una invitaci\u00f3 de la teva empresa.",
+          "step1": "Registra't amb el correu electr\u00f2nic convidat.",
+          "step2": "Inicia sessi\u00f3.",
+          "step3": "L'acc\u00e9s a l'espai s'activar\u00e0 autom\u00e0ticament.",
+          "cta": "Unir-me a empresa",
+          "codeLabel": "Codi d'invitaci\u00f3",
+          "codePlaceholder": "Codi d'invitaci\u00f3",
+          "validateCta": "Validar i Unir-me",
+          "linkLabel": "Anar a unir-me a empresa"
+        },
+        "create": {
+          "ownerTag": "Ser\u00e0s OWNER del nou espai",
+          "badge": "Recomanat",
+          "title": "Crear espai de treball",
+          "text": "Crea la teva empresa i prepara un espai per a tots els teus fluxos.",
+          "cta": "Crear espai de treball",
+          "benefit1": "Convida el teu equip",
+          "benefit2": "Organitza projectes i \u00e0rees",
+          "benefit3": "Activa nous m\u00f2duls a mesura que creixes",
+          "linkLabel": "Anar a crear espai de treball"
+        }
+      },
+      "loginSection": {
+        "question": "Ja tens compte?",
+        "cta": "Iniciar sessi\u00f3"
+      }
+    },
+    "createFlow": {
+      "kicker": "Crear nou espai",
+      "title": "Crea la teva empresa i equip inicial",
+      "subtitle": "Només defineixes empresa i convidats. Els plans s'activen des d'admin.",
+      "back": "Tornar"
+    },
+    "createWorkspace": {
+      "ownerPill": "Seràs OWNER automàticament en crear l'empresa",
+      "companyNameLabel": "Nom de l'empresa",
+      "companyNamePlaceholder": "Ex: Estudi Nord Arquitectura",
+      "slugLabel": "Identificador (slug)",
+      "slugHelp": "Es genera automàticament a partir del nom de l'empresa.",
+      "slugEmpty": "Es generara quan escriguis el nom",
+      "plansTitle": "Plans disponibles",
+      "plansDescription": "Marca els plans que t'interessen. L'activació només la fa un administrador global.",
+      "plansEmpty": "No hi ha plans disponibles ara mateix.",
+      "planSelected": "Interes marcat",
+      "planUnselected": "Sense interes",
+      "teamTitle": "Equip inicial (opcional)",
+      "teamDescription": "Convida empleats i assigna rol. L'accés s'activarà quan iniciin sessió amb aquest email.",
+      "employeeEmailPlaceholder": "empleat{index}@empresa.com",
+      "addEmployee": "Afegir empleat",
+      "removeEmployee": "Treure",
+      "roleViewer": "Viewer (només lectura)",
+      "roleEditor": "Editor (operatiu)",
+      "roleOwner": "Owner (control total)",
+      "submit": "Crear empresa",
+      "back": "Tornar"
+    },
+    "joinFlow": {
+      "kicker": "Accés d'empleat",
+      "title": "Unir-me a una empresa existent",
+      "subtitle": "Necessites invitació de l'owner amb aquest mateix email.",
+      "stepsTitle": "Passos",
+      "step1": "Demana invitació a l'owner de la teva empresa.",
+      "step2": "Registra't amb aquest email.",
+      "step3": "Inicia sessió per activar l'accés.",
+      "actionsTitle": "Accions",
+      "actionsText": "Si encara no tens compte, registra't. Si ja en tens, inicia sessió.",
+      "register": "Registrar-me",
+      "login": "Ja tinc compte"
+    },
+    "noMembership": {
+      "kicker": "Sessió iniciada",
+      "title": "Encara no tens cap espai assignat",
+      "subtitle": "Sessió activa com {email}. Pots crear un espai, unir-te com a empleat o canviar de compte.",
+      "fallbackEmail": "usuari actual",
+      "cards": {
+        "create": {
+          "title": "Crear espai de treball",
+          "text": "Crea una empresa nova i seras owner automàticament.",
+          "cta": "Crear espai"
+        },
+        "join": {
+          "title": "Unir-me com a empleat",
+          "text": "Si l'empresa ja existeix, demana invitació i activa vinculació amb el teu email.",
+          "cta": "Anar al flux d'empleat"
+        },
+        "switch": {
+          "title": "Ja tinc un altre compte amb accés",
+          "text": "Tanca aquesta sessió i entra amb un compte que ja tingui accés.",
+          "cta": "Iniciar sessió amb un altre compte"
+        }
+      }
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Vista general del workspace actiu.",
+      "workspace": "Workspace actiu",
+      "role": "El teu rol",
+      "roleOwner": "Owner",
+      "roleAdmin": "Admin",
+      "roleMember": "Member",
+      "products": "Productes i membresies",
+      "tenantSwitcher": "Canvi ràpid de workspace",
+      "quickActionsTitle": "Accions ràpides",
+      "quickActionsEmpty": "No hi ha accions disponibles amb el teu rol i membresies actuals.",
+      "actions": {
+        "comparison": {
+          "accessProduct": "Accedir al producte comparació",
+          "goCurrent": "Anar a la comparació en curs",
+          "viewProgress": "Veure progres actual",
+          "createComparison": "Crear comparació"
+        },
+        "memòria": {
+          "accessProduct": "Accedir al producte memòria"
+        }
+      },
+      "blockedPlan": {
+        "noticeTitle": "Hi ha productes bloquejats en aquest workspace.",
+        "noticeText": "El producte {plan} està bloquejat. Pots sol·licitar-ne l'activació.",
+        "requestCta": "Sol·licitar producte",
+        "requestOk": "Sol·licitud enviada. Revisarem l'activació del producte.",
+        "requestError": "No s'ha pogut registrar la sol-licitud del producte."
+      },
+      "queue": "Execucions i cua",
+      "queueText": "Llistat compacte d'execucions recents del tenant actiu.",
+      "runDate": "Iniciada: {date}",
+      "runNoDate": "sense data",
+      "runStatuses": {
+        "completed": "Completada",
+        "running": "En procés",
+        "queued": "En cua",
+        "failed": "Fallida",
+        "cancelled": "Cancel-lada",
+        "unknown": "Sense estat"
+      },
+      "membershipStatus": {
+        "active": "Actiu",
+        "blocked": "Bloquejat"
+      },
+      "emptyProjects": {
+        "title": "Encara no hi ha projectes de comparació",
+        "description": "Crea un projecte per habilitar pujades i execucions."
+      },
+      "emptyRuns": {
+        "title": "Encara no hi ha execucions",
+        "description": "Puja un pressupost per llançar la primera execució."
+      },
+      "team": {
+        "title": "Equip",
+        "subtitle": "Convida empleats i revisa rols del workspace.",
+        "membersCount": "{count, plural, one {# membre} other {# membres}}",
+        "unnamedMember": "Membre sense nom",
+        "empty": {
+          "title": "Encara no hi ha membres a l'equip",
+          "description": "Convida empleats per col·laborar en aquest tenant."
+        },
+        "dataUnavailable": "No s'ha pogut carregar la informació de l'equip. Fes servir Gestionar equip.",
+        "activeStatus": "Actiu"
+      },
+      "cta": {
+        "uploadBudget": "Pujar pressupost",
+        "createProject": "Crear projecte",
+        "view": "Veure",
+        "download": "Descarregar",
+        "manageTeam": "Gestionar equip",
+        "inviteTeam": "Convidar equip"
+      },
+      "noActivePlans": "No hi ha membresies actives en aquest workspace."
+    }
+  },
+  "teamPage": {
+    "title": "Gestió de l'equip",
+    "subtitle": "Workspace: {workspace}",
+    "workspaceFallback": "Workspace actiu",
+    "roles": {
+      "owner": "Owner",
+      "editor": "Editor",
+      "viewer": "Member"
+    },
+    "statuses": {
+      "active": "Actiu",
+      "invited": "Convidat",
+      "disabled": "Deshabilitat",
+      "unknown": "Sense estat"
+    },
+    "feedback": {
+      "close": "Tancar avis",
+      "invited": "Invitació enviada correctament.",
+      "inviteAlreadyPending": "Aquest email ja te una invitació pendent en aquest workspace.",
+      "inviteAlreadyAccepted": "Aquest email ja forma part de l'equip d'aquest workspace.",
+      "inviteResent": "Invitació reenviada correctament.",
+      "inviteRevoked": "Invitació revocada correctament.",
+      "removed": "Membre eliminat de l'equip.",
+      "invalidEmail": "Introdueix un email valid.",
+      "inviteFailed": "No s'ha pogut enviar la invitació.",
+      "inviteNotFound": "No s'ha trobat la invitació seleccionada.",
+      "inviteNotPending": "Només es poden reenviar o revocar invitacions en estat pendent.",
+      "inviteRateLimited": "La invitació esta desada, pero el proveidor de correu ha limitat temporalment l'enviament. Espera uns minuts i fes Reenviar.",
+      "inviteEmailFailed": "La invitació s'ha desat, pero l'email no s'ha pogut enviar. Revisa la configuració de correu.",
+      "inviteEmailNotConfigured": "La invitació s'ha desat, pero no hi ha cap proveidor de correu configurat (Resend o SMTP/Auth a Supabase).",
+      "inviteRevokeFailed": "No s'ha pogut revocar la invitació.",
+      "removeFailed": "No s'ha pogut eliminar el membre.",
+      "removeSelf": "No pots eliminar el teu propi usuari des d'aquesta pantalla.",
+      "memberAlreadyRemoved": "Aquest membre ja era a membres passats.",
+      "memberNotInactive": "Només es poden reactivar membres en estat eliminat.",
+      "memberReactivateFailed": "No s'ha pogut reactivar el compte del membre.",
+      "memberReactivated": "Compte reactivat correctament.",
+      "memberNotFound": "No s'ha trobat el membre seleccionat.",
+      "forbidden": "No tens permisos per gestionar aquest membre.",
+      "lastOwner": "No es pot eliminar l'Últim owner actiu del workspace.",
+      "successGeneric": "Operació completada.",
+      "warningGeneric": "Revisa l'avis per continuar.",
+      "errorGeneric": "No s'ha pogut completar l'operació."
+    },
+    "invite": {
+      "title": "Convidar nou membre",
+      "description": "Afegeix membres per email i defineix el seu rol al workspace.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "equip@empresa.com",
+      "roleLabel": "Rol",
+      "submit": "Enviar invitació"
+    },
+    "members": {
+      "title": "Membres de l'equip",
+      "description": "Vista completa de l'equip amb mètriques d'execució.",
+      "remove": "Eliminar",
+      "emptyTitle": "No hi ha membres en aquest workspace",
+      "emptyDescription": "Convida el primer membre des del formulari superior.",
+      "modal": {
+        "title": "Confirmar eliminació",
+        "description": "{name} serà eliminat de l'equip. Aquesta acció no es pot desfer.",
+        "cancel": "Cancel·lar",
+        "confirm": "Eliminar membre"
+      }
+    },
+    "pastMembers": {
+      "title": "Membres passats",
+      "description": "Usuaris eliminats de l'equip que pots reactivar més endavant.",
+      "pastStatus": "Eliminat",
+      "reactivate": "Reactivar compte",
+      "empty": "No hi ha membres passats."
+    },
+    "pendingInvites": {
+      "title": "Invitacions pendents",
+      "description": "Invitacions actives que encara no s'han acceptat.",
+      "pending": "Pendent",
+      "resend": "Reenviar",
+      "revoke": "Revocar",
+      "empty": "No hi ha invitacions pendents."
+    },
+    "member": {
+      "unnamed": "Membre sense nom"
+    },
+    "metrics": {
+      "totalRuns": "Runs totals",
+      "completedRuns": "Runs OK",
+      "failedRuns": "Runs KO",
+      "lastRun": "Última activitat",
+      "noDate": "sense data"
+    }
+  },
+  "workspace": {
+    "search": "Cercar",
+    "notifications": "Notificacions",
+    "dashboardLabel": "Dashboard",
+    "disabledLabel": "Deshabilitat",
+    "products": {
+      "memoria_basica": "Generació de memòria bàsica",
+      "comparacion_presupuestos": "Comparació de pressupostos"
+    },
+    "credits": {
+      "label": "Credits restants",
+      "unit": "credits",
+      "quotaLabel": "Exec. / Reexec. restants",
+      "quotaUnit": "exec/reexec",
+      "customPlanLabel": "Pla personalitzat",
+      "customPlanValue": "Actiu",
+      "appQuotaTitle": "Limits a {app}",
+      "executionsRemaining": "Execucions restants",
+      "rerunsRemaining": "Re execucions restants",
+      "executionsPill": "Execucions",
+      "rerunsPill": "Re-execucions",
+      "unknownApp": "Aplicació",
+      "apps": {
+        "comparacion_presupuestos": "Comparador",
+        "memoria_basica": "Memòria"
+      },
+      "loading": "...",
+      "level": {
+        "unknown": "sense dada",
+        "low": "saldo baix",
+        "medium": "saldo mitja",
+        "high": "saldo alt"
+      }
+    },
+    "theme": {
+      "light": "Clar",
+      "dark": "Fosc"
+    },
+    "nav": "Navegació del workspace",
+    "menu": {
+      "settings": "Configuració",
+      "logout": "Tancar sessió",
+      "clientMenu": "Menu de client"
+    }
+  },
+  "uploadPage": {
+    "title": "Generació de memòria bàsica",
+    "subtitle": "Tenant actiu: {tenant}",
+    "tenantUnknown": "no resolt",
+    "step1Title": "1) Pujar planols",
+    "step1Text": "Arrossega els plans PDF aqui o fes clic per seleccionar-los.",
+    "step1InputLabel": "Pujar plans arquitectonics PDF",
+    "step2Title": "2) Revisió de seccions"
+  },
+  "memoriaPage": {
+    "title": "Generació de memòria bàsica",
+    "subtitle": "Extracció, generació i revisió de document.",
+    "flowTitle": "Flux principal",
+    "flowStep1": "Pujada de plans en PDF",
+    "flowStep2": "Extracció estructurada amb Landing AI",
+    "flowStep3": "Generació per seccions amb LLM",
+    "flowStep4": "Revisió i exportació final",
+    "start": "Començar"
+  },
+  "locale": {
+    "label": "Idioma",
+    "en": "English",
+    "es": "Español",
+    "ca": "Català"
+  },
+  "comparadorHub": {
+    "title": "Projectes de Comparació de Pressupostos",
+    "subtitle": "Selecciona un projecte existent per veure historial i llançar noves execucions, o crea una nova comparació.",
+    "common": {
+      "noDate": "sense data"
+    },
+    "editor": {
+      "title": "Comparador de Pressupostos",
+      "subtitle": "Projecte actiu: {name}",
+      "activeProjectLabel": "Projecte actiu",
+      "backToProjects": "Tornar als projectes",
+      "historyTotal": "Històric total: {count} execució(ns)",
+      "lastStatus": "Últim estat: {status}"
+    },
+    "create": {
+      "title": "Nova comparació",
+      "hint": "Defineix un nom clar per localitzar ràpid les execucions.",
+      "placeholder": "Ex: Reforma habitatge Carrer Major - Marc 2026",
+      "button": "Crear projecte i obrir comparador"
+    },
+    "history": {
+      "title": "Històric de projectes",
+      "note": "Selecciona un projecte per continuar"
+    },
+    "summary": {
+      "projects": "Projectes",
+      "active": "Actius",
+      "withRuns": "Amb runs",
+      "totalRuns": "Runs totals"
+    },
+    "empty": {
+      "title": "Encara no hi ha projectes",
+      "description": "Crea la primera comparació per començar a guardar històric i resultats."
+    },
+    "card": {
+      "updatedAt": "Actualitzat {date}",
+      "executions": "Execucions",
+      "lastRun": "Últim run",
+      "runDate": "Data: {date}",
+      "openProject": "Obrir projecte",
+      "deleteProject": "Eliminar",
+      "deleteProjectTitle": "Confirmar eliminació",
+      "deleteProjectDescription": "Estas a punt d'eliminar el projecte {name} i el seu històric associat. Aquesta acció no es pot desfer.",
+      "deleteProjectCancel": "Cancel·lar",
+      "deleteProjectConfirm": "Eliminar projecte"
+    },
+    "statuses": {
+      "run": {
+        "completed": "Completada",
+        "running": "En procés",
+        "queued": "En cua",
+        "failed": "Fallida",
+        "cancelled": "Cancel-lada",
+        "none": "Sense execucions",
+        "unknown": "Sense estat"
+      },
+      "project": {
+        "active": "Actiu",
+        "draft": "Esborrany",
+        "archived": "Arxivat",
+        "unknown": "Sense estat"
+      }
+    }
+  }
+}
+
+
+

@@ -1,0 +1,576 @@
+{
+    "auth":  {
+                 "brand":  "Architech.io",
+                 "title":  {
+                               "login":  "Welcome back",
+                               "signup":  "Create account",
+                               "reset":  "Reset password"
+                           },
+                 "subtitle":  {
+                                  "login":  "Sign in to access your Architech.io workspace.",
+                                  "signup":  "Sign up to access your Architech.io workspace.",
+                                  "reset":  "Enter your email and we will send you a reset link."
+                              },
+                 "submit":  {
+                                "login":  "Sign in",
+                                "signup":  "Create account",
+                                "reset":  "Send reset link"
+                            },
+                 "field":  {
+                               "firstName":  "First name",
+                               "lastName":  "Last name",
+                               "email":  "Email",
+                               "password":  "Password",
+                               "confirmPassword":  "Confirm password",
+                               "passwordHint":  "At least 8 characters"
+                           },
+                 "placeholder":  {
+                                     "firstName":  "Your first name",
+                                     "lastName":  "Your last name",
+                                     "email":  "you@example.com",
+                                     "passwordCreate":  "Create a password",
+                                     "passwordCurrent":  "Your password",
+                                     "passwordRepeat":  "Repeat your password"
+                                 },
+                 "toggle":  {
+                                "show":  "Show password",
+                                "hide":  "Hide password"
+                            },
+                 "forgot":  "Forgot password?",
+                 "resetLink":  "Reset password",
+                 "or":  "or",
+                 "google":  "Continue with Google",
+                 "successTitle":  "Success",
+                 "inviteAccess":  {
+                                      "title":  "Complete your access",
+                                      "subtitle":  "Set your password to activate access to the workspace you were invited to.",
+                                      "submit":  "Save password and continue"
+                                  },
+                 "footer":  {
+                                "newHere":  "New here?",
+                                "createAccount":  "Create an account",
+                                "haveAccount":  "Already have an account?",
+                                "signIn":  "Sign in",
+                                "backToSignIn":  "Back to sign in"
+                            }
+             },
+    "errors":  {
+                   "sessionExpired":  "Your session has expired. Please sign in again.",
+                   "invalidCredentials":  "Email or password is incorrect. Please try again or reset your password.",
+                   "emailNotConfirmed":  "Please check your inbox and confirm your email before signing in.",
+                   "rateLimited":  "Too many attempts. Please wait a few minutes before trying again.",
+                   "alreadyRegistered":  "This email already has an account. Sign in instead.",
+                   "missingLoginFields":  "Email and password are required.",
+                   "missingSignupFields":  "Email, password and confirmation are required.",
+                   "missingProfileName":  "First name and last name are required.",
+                   "missingEmail":  "Email is required.",
+                   "passwordMinLength":  "Password must have at least 8 characters.",
+                   "passwordsDoNotMatch":  "Passwords do not match.",
+                   "unknown":  "An error occurred. Please try again."
+               },
+    "comparador":  {
+                       "title":  "Budget Comparator",
+                       "subtitle":  "Upload the master schedule and supplier PDFs. Generate the comparison in Excel.",
+                       "step1Label":  "Set Schedule - Master Excel",
+                       "step1Desc":  "Reference Excel file used as schedule for the comparison.",
+                       "step2Label":  "Upload Offers - Supplier PDFs",
+                       "step2Desc":  "Upload one or more PDFs with supplier quotes.",
+                       "step3Label":  "Generate Comparison",
+                       "step3Desc":  "The system analyzes all items and generates a structured comparison Excel.",
+                       "readiness":  {
+                                         "excel":  "Master Excel loaded",
+                                         "noOffers":  "No offers loaded",
+                                         "offers":  "{count, plural, one {# offer ready} other {# offers ready}}",
+                                         "projectConnected":  "Active project connected"
+                                     },
+                       "generate":  "Generate comparison",
+                       "sending":  "Sending files to server...",
+                       "processing":  "Pipeline started. Processing...",
+                       "completed":  "Process completed!",
+                       "failed":  "The comparison could not be completed. Please try again.",
+                       "errNoBackend":  "The comparison could not be started. Please try again in a few minutes.",
+                       "errInvalidFiles":  "Invalid files.",
+                       "errNetwork":  "Could not connect to start the comparison. Please try again.",
+                       "newComparativa":  "New comparison",
+                       "errSessionExpired":  "Your session has expired. Please sign in again.",
+                       "recovery":  {
+                                        "title":  "Retry last failed attempt",
+                                        "subtitle":  "You can retry using exactly the same stored documents.",
+                                        "pauta":  "Schedule: {name}",
+                                        "pdfs":  "{count, plural, one {# PDF detected} other {# PDFs detected}}",
+                                        "cta":  "Retry with same documents"
+                                    },
+                       "creditEstimate":  {
+                                              "title":  "Estimated cost",
+                                              "loading":  "Calculating credits...",
+                                              "pending":  "Upload schedule and offers to estimate run credits.",
+                                              "main":  "Approx charge: {credits} credits.",
+                                              "detail":  "{files} file(s) | {mb} MB total",
+                                              "proportional":  "Size is calculated per file (proportional)."
+                                          },
+                       "summary":  {
+                                       "title":  "Execution completed: files and timing",
+                                       "subtitle":  "Review files from this run in processing order: schedule, offers and final result.",
+                                       "outputFile":  "Generated file: {name}",
+                                       "pauta":  "Schedule used: {name}",
+                                       "pdfs":  "{count, plural, one {# PDF used} other {# PDFs used}}",
+                                       "filesTitle":  "Execution files",
+                                       "previewTitle":  "Preview",
+                                       "previewHint":  "Reference view ({type}) of selected file.",
+                                       "previewNote":  "Indicative preview based on file type.",
+                                       "fileRoleOutput":  "Comparison output",
+                                       "fileRolePauta":  "Master schedule",
+                                       "fileRolePdf":  "Supplier budget",
+                                       "startedAtLabel":  "Start",
+                                       "finishedAtLabel":  "End",
+                                       "durationLabel":  "Duration",
+                                       "startedAt":  "Start: {date}",
+                                       "finishedAt":  "End: {date}",
+                                       "duration":  "Duration: {value}",
+                                       "downloadFile":  "Download file",
+                                       "download":  "Download result",
+                                       "notAvailable":  "Not available",
+                                       "rerunTitle":  "Rerun with PDF changes",
+                                       "rerunHint":  "Upload only the PDFs you want to replace. Unchanged PDFs will reuse extraction and mapping from the previous run.",
+                                       "rerunCta":  "Start re-execution",
+                                       "rerunConfigureCta":  "Re-execution",
+                                       "rerunBackCta":  "Close",
+                                       "rerunSelectionTitle":  "Existing PDFs selection",
+                                       "fixedPautaTitle":  "Fixed schedule (locked)",
+                                       "rerunNoOriginalPdfs":  "No PDFs found from the previous run.",
+                                       "rerunModeAudit":  "Re-run audit/judge",
+                                       "rerunModeReuse":  "Reuse without re-running"
+                                          }
+                   },
+    "excel":  {
+                  "ready":  "File ready",
+                  "dragPrompt":  "Drag the Excel file or",
+                  "select":  "select it",
+                  "formats":  ".xlsx - .xls"
+              },
+    "pdf":  {
+                "dragPrompt":  "Drag offer PDFs or",
+                "select":  "select them",
+                "hint":  "You can upload multiple files - PDF only"
+            },
+    "processing":  {
+                       "title":  "Processing - this may take several minutes.",
+                       "initializing":  "Initializing...",
+                       "footer":  "In progress... you can leave and come back"
+                   },
+    "results":  {
+                    "title":  "Comparison ready!",
+                    "readyMsg":  "File {filename} is ready to download.",
+                    "download":  "Download comparison Excel"
+                },
+    "home":  {
+                 "landing":  {
+                                 "kicker":  "Multi-company platform",
+                                 "title":  "Access your workspace",
+                                 "subtitle":  "Centralize your team processes and tools in a single workspace.",
+                                 "cards":  {
+                                               "login":  {
+                                                             "title":  "Sign in",
+                                                             "text":  "You already have an account. Go to your panel.",
+                                                             "cta":  "Sign in"
+                                                         },
+                                               "join":  {
+                                                            "title":  "Join company",
+                                                            "text":  "Access with an invitation from your company.",
+                                                            "step1":  "Register with the invited email.",
+                                                            "step2":  "Sign in.",
+                                                            "step3":  "Your workspace access will activate automatically.",
+                                                            "cta":  "Join company",
+                                                            "codeLabel":  "Invitation code",
+                                                            "codePlaceholder":  "Invitation code",
+                                                            "validateCta":  "Validate \u0026 Join",
+                                                            "linkLabel":  "Go to join company"
+                                                        },
+                                               "create":  {
+                                                              "ownerTag":  "You will be OWNER of the new workspace",
+                                                              "badge":  "Recommended",
+                                                              "title":  "Create workspace",
+                                                              "text":  "Create your company and set up a space for all your workflows.",
+                                                              "cta":  "Create workspace",
+                                                              "benefit1":  "Invite your team",
+                                                              "benefit2":  "Organize projects and areas",
+                                                              "benefit3":  "Enable new modules as you grow",
+                                                              "linkLabel":  "Go to create workspace"
+                                                          }
+                                           },
+                                 "loginSection":  {
+                                                      "question":  "Already have an account?",
+                                                      "cta":  "Sign in"
+                                                  }
+                             },
+                 "createFlow":  {
+                                    "kicker":  "Create new workspace",
+                                    "title":  "Create your company and initial team",
+                                    "subtitle":  "You only define company and invites. Plans are activated by admin.",
+                                    "back":  "Back"
+                                },
+                 "createWorkspace":  {
+                                         "ownerPill":  "You will automatically become OWNER when creating the company",
+                                         "companyNameLabel":  "Company name",
+                                         "companyNamePlaceholder":  "Ex: North Studio Architecture",
+                                         "slugLabel":  "Identifier (slug)",
+                                         "slugHelp":  "Generated automatically from company name.",
+                                         "slugEmpty":  "Will be generated when you type a name",
+                                         "plansTitle":  "Available plans",
+                                         "plansDescription":  "Mark plans you are interested in. Activation is global-admin only.",
+                                         "plansEmpty":  "No plans are available right now.",
+                                         "planSelected":  "Interest selected",
+                                         "planUnselected":  "Not selected",
+                                         "teamTitle":  "Initial team (optional)",
+                                         "teamDescription":  "Invite employees and assign role. Access activates when they sign in with that email.",
+                                         "employeeEmailPlaceholder":  "employee{index}@company.com",
+                                         "addEmployee":  "Add employee",
+                                         "removeEmployee":  "Remove",
+                                         "roleViewer":  "Viewer (read-only)",
+                                         "roleEditor":  "Editor (operational)",
+                                         "roleOwner":  "Owner (full control)",
+                                         "submit":  "Create company",
+                                         "back":  "Back"
+                                     },
+                 "joinFlow":  {
+                                  "kicker":  "Employee access",
+                                  "title":  "Join an existing company",
+                                  "subtitle":  "You need an invitation from your owner with this same email.",
+                                  "stepsTitle":  "Steps",
+                                  "step1":  "Ask your company owner for an invitation.",
+                                  "step2":  "Register with that email.",
+                                  "step3":  "Sign in to activate access.",
+                                  "actionsTitle":  "Actions",
+                                  "actionsText":  "If you do not have an account yet, register. If you already have one, sign in.",
+                                  "register":  "Register",
+                                  "login":  "I already have an account"
+                              },
+                 "noMembership":  {
+                                      "kicker":  "Session started",
+                                      "title":  "You still do not have any assigned workspace",
+                                      "subtitle":  "Active session as {email}. You can create a workspace, join as employee or switch account.",
+                                      "fallbackEmail":  "current user",
+                                      "cards":  {
+                                                    "create":  {
+                                                                   "title":  "Create workspace",
+                                                                   "text":  "Create a new company and become owner automatically.",
+                                                                   "cta":  "Create workspace"
+                                                               },
+                                                    "join":  {
+                                                                 "title":  "Join as employee",
+                                                                 "text":  "If your company already exists, request invitation and activate with your email.",
+                                                                 "cta":  "Go to employee flow"
+                                                             },
+                                                    "switch":  {
+                                                                   "title":  "I have another account with access",
+                                                                   "text":  "Close this session and sign in with an account that already has access.",
+                                                                   "cta":  "Sign in with another account"
+                                                               }
+                                                }
+                                  },
+                 "dashboard":  {
+                                   "title":  "Dashboard",
+                                   "subtitle":  "Overview of the active workspace.",
+                                   "workspace":  "Active workspace",
+                                   "role":  "Your role",
+                                   "roleOwner":  "Owner",
+                                   "roleAdmin":  "Admin",
+                                   "roleMember":  "Member",
+                                   "products":  "Products and memberships",
+                                   "tenantSwitcher":  "Quick workspace switch",
+                                   "quickActionsTitle":  "Quick actions",
+                                   "quickActionsEmpty":  "No actions are available for your current role and memberships.",
+                                   "actions":  {
+                                                   "comparison":  {
+                                                                      "accessProduct":  "Open comparison product",
+                                                                      "goCurrent":  "Go to current comparison",
+                                                                      "viewProgress":  "View current progress",
+                                                                      "createComparison":  "Create comparison"
+                                                                  },
+                                                   "memoria":  {
+                                                                   "accessProduct":  "Open memoria product"
+                                                               }
+                                               },
+                                   "blockedPlan":  {
+                                                       "noticeTitle":  "There are blocked products in this workspace.",
+                                                       "noticeText":  "The product {plan} is blocked. You can request activation.",
+                                                       "requestCta":  "Request product",
+                                                       "requestOk":  "Request sent. We will review product activation.",
+                                                       "requestError":  "Product request could not be registered."
+                                                   },
+                                   "queue":  "Runs and queue",
+                                   "queueText":  "Compact list of recent executions for the active tenant.",
+                                   "runDate":  "Started: {date}",
+                                   "runNoDate":  "no date",
+                                   "runStatuses":  {
+                                                       "completed":  "Completed",
+                                                       "running":  "Running",
+                                                       "queued":  "Queued",
+                                                       "failed":  "Failed",
+                                                       "cancelled":  "Cancelled",
+                                                       "unknown":  "Unknown"
+                                                   },
+                                   "membershipStatus":  {
+                                                            "active":  "Active",
+                                                            "blocked":  "Blocked"
+                                                        },
+                                   "emptyProjects":  {
+                                                         "title":  "No comparison projects yet",
+                                                         "description":  "Create a project to enable uploads and executions."
+                                                     },
+                                   "emptyRuns":  {
+                                                     "title":  "No executions yet",
+                                                     "description":  "Upload a budget to launch the first execution."
+                                                 },
+                                   "team":  {
+                                                "title":  "Team",
+                                                "subtitle":  "Invite employees and review workspace roles.",
+                                                "membersCount":  "{count, plural, one {# member} other {# members}}",
+                                                "unnamedMember":  "Unnamed member",
+                                                "empty":  {
+                                                              "title":  "No team members yet",
+                                                              "description":  "Invite employees to collaborate in this tenant."
+                                                          },
+                                                "dataUnavailable":  "Team data could not be loaded. Use Manage team.",
+                                                "activeStatus":  "Active"
+                                            },
+                                   "cta":  {
+                                               "uploadBudget":  "Upload budget",
+                                               "createProject":  "Create project",
+                                               "view":  "View",
+                                               "download":  "Download",
+                                               "manageTeam":  "Manage team",
+                                               "inviteTeam":  "Invite team"
+                                           },
+                                   "noActivePlans":  "No active memberships in this workspace."
+                               }
+             },
+    "teamPage":  {
+                     "title":  "Team management",
+                     "subtitle":  "Workspace: {workspace}",
+                     "workspaceFallback":  "Active workspace",
+                     "roles":  {
+                                   "owner":  "Owner",
+                                   "editor":  "Editor",
+                                   "viewer":  "Member"
+                               },
+                     "statuses":  {
+                                      "active":  "Active",
+                                      "invited":  "Invited",
+                                      "disabled":  "Disabled",
+                                      "unknown":  "Unknown"
+                                  },
+                     "feedback":  {
+                                      "close":  "Close notice",
+                                      "invited":  "Invitation sent successfully.",
+                                      "inviteAlreadyPending":  "This email already has a pending invitation in this workspace.",
+                                      "inviteAlreadyAccepted":  "This email already belongs to this workspace team.",
+                                      "inviteResent":  "Invitation resent successfully.",
+                                      "inviteRevoked":  "Invitation revoked successfully.",
+                                      "removed":  "Member removed from the team.",
+                                      "invalidEmail":  "Please provide a valid email.",
+                                      "inviteFailed":  "Invitation could not be sent.",
+                                      "inviteNotFound":  "Selected invitation was not found.",
+                                      "inviteNotPending":  "Only pending invitations can be resent or revoked.",
+                                      "inviteRateLimited":  "Invitation is saved, but the mail provider is temporarily rate-limited. Please wait a few minutes and use Resend.",
+                                      "inviteEmailFailed":  "Invitation was saved, but the email could not be sent. Check mail provider configuration.",
+                                      "inviteEmailNotConfigured":  "Invitation was saved, but no email provider is configured yet (Resend or Supabase SMTP/Auth).",
+                                      "inviteRevokeFailed":  "Invitation could not be revoked.",
+                                      "removeFailed":  "Member could not be removed.",
+                                      "removeSelf":  "You cannot remove your own user from this screen.",
+                                      "memberAlreadyRemoved":  "This member is already in past members.",
+                                      "memberNotInactive":  "Only removed members can be reactivated.",
+                                      "memberReactivateFailed":  "Member account could not be reactivated.",
+                                      "memberReactivated":  "Account reactivated successfully.",
+                                      "memberNotFound":  "Selected member was not found.",
+                                      "forbidden":  "You do not have permission to manage this member.",
+                                      "lastOwner":  "The last active owner cannot be removed from the workspace.",
+                                      "successGeneric":  "Operation completed.",
+                                      "warningGeneric":  "Please review this notice before continuing.",
+                                      "errorGeneric":  "The operation could not be completed."
+                                  },
+                     "invite":  {
+                                    "title":  "Invite new member",
+                                    "description":  "Add members by email and assign their workspace role.",
+                                    "emailLabel":  "Email",
+                                    "emailPlaceholder":  "team@company.com",
+                                    "roleLabel":  "Role",
+                                    "submit":  "Send invitation"
+                                },
+                     "members":  {
+                                     "title":  "Team members",
+                                     "description":  "Full team view with execution metrics.",
+                                     "remove":  "Remove",
+                                     "emptyTitle":  "No members in this workspace",
+                                     "emptyDescription":  "Invite the first member using the form above.",
+                                     "modal":  {
+                                                   "title":  "Confirm removal",
+                                                   "description":  "{name} will be removed from the team. This action cannot be undone.",
+                                                   "cancel":  "Cancel",
+                                                   "confirm":  "Remove member"
+                                               }
+                                 },
+                     "pastMembers":  {
+                                         "title":  "Past members",
+                                         "description":  "Users removed from the team that you can reactivate later.",
+                                         "pastStatus":  "Removed",
+                                         "reactivate":  "Reactivate account",
+                                         "empty":  "There are no past members."
+                                     },
+                     "pendingInvites":  {
+                                            "title":  "Pending invitations",
+                                            "description":  "Active invitations that have not been accepted yet.",
+                                            "pending":  "Pending",
+                                            "resend":  "Resend",
+                                            "revoke":  "Revoke",
+                                            "empty":  "No pending invitations."
+                                        },
+                     "member":  {
+                                    "unnamed":  "Unnamed member"
+                                },
+                     "metrics":  {
+                                     "totalRuns":  "Total runs",
+                                     "completedRuns":  "Successful runs",
+                                     "failedRuns":  "Failed runs",
+                                     "lastRun":  "Last activity",
+                                     "noDate":  "no date"
+                                 }
+                 },
+    "workspace":  {
+                      "search":  "Search",
+                      "notifications":  "Notifications",
+                      "dashboardLabel":  "Dashboard",
+                      "disabledLabel":  "Disabled",
+                      "products":  {
+                                       "memoria_basica":  "Basic memory generation",
+                                       "comparacion_presupuestos":  "Budget comparison"
+                                   },
+                      "credits":  {
+                                      "label":  "Remaining credits",
+                                      "unit":  "credits",
+                                      "quotaLabel":  "Exec. / Rerun left",
+                                      "quotaUnit":  "exec/rerun",
+                                      "customPlanLabel":  "Custom plan",
+                                      "customPlanValue":  "Active",
+                                      "appQuotaTitle":  "Quota in {app}",
+                                      "executionsRemaining":  "Executions left",
+                                      "rerunsRemaining":  "Reruns left",
+                                      "executionsPill":  "Executions",
+                                      "rerunsPill":  "Reruns",
+                                      "unknownApp":  "Application",
+                                      "apps":  {
+                                                   "comparacion_presupuestos":  "Comparator",
+                                                   "memoria_basica":  "Memory"
+                                               },
+                                      "loading":  "...",
+                                      "level":  {
+                                                    "unknown":  "unknown",
+                                                    "low":  "low balance",
+                                                    "medium":  "medium balance",
+                                                    "high":  "high balance"
+                                                }
+                                  },
+                      "theme":  {
+                                    "light":  "Light",
+                                    "dark":  "Dark"
+                                },
+                      "nav":  "Workspace navigation",
+                      "menu":  {
+                                   "settings":  "Settings",
+                                   "logout":  "Sign out",
+                                   "clientMenu":  "Client menu"
+                               }
+                  },
+    "uploadPage":  {
+                       "title":  "Basic memory generation",
+                       "subtitle":  "Active tenant: {tenant}",
+                       "tenantUnknown":  "unresolved",
+                       "step1Title":  "1) Upload plans",
+                       "step1Text":  "Drag your PDF plans here or click to select files.",
+                       "step1InputLabel":  "Upload architectural plan PDF",
+                       "step2Title":  "2) Section review"
+                   },
+    "memoriaPage":  {
+                        "title":  "Basic memory generation",
+                        "subtitle":  "Extraction, generation and document review.",
+                        "flowTitle":  "Main flow",
+                        "flowStep1":  "Upload plan PDFs",
+                        "flowStep2":  "Structured extraction with Landing AI",
+                        "flowStep3":  "Section generation with LLM",
+                        "flowStep4":  "Final review and export",
+                        "start":  "Start"
+                    },
+    "locale":  {
+                   "label":  "Language",
+                   "en":  "English",
+                   "es": "Espa\u00f1ol",
+                   "ca": "Catal\u00e0"
+               },
+    "comparadorHub":  {
+                          "title":  "Budget Comparison Projects",
+                          "subtitle":  "Select an existing project to review history and run new executions, or create a new comparison.",
+                          "common":  {
+                                         "noDate":  "no date"
+                                     },
+                          "editor":  {
+                                         "title":  "Budget Comparator",
+                                         "subtitle":  "Active project: {name}",
+                                         "activeProjectLabel":  "Active project",
+                                         "backToProjects":  "Back to projects",
+                                         "historyTotal":  "History total: {count} run(s)",
+                                         "lastStatus":  "Last status: {status}"
+                                     },
+                          "create":  {
+                                         "title":  "New comparison",
+                                         "hint":  "Use a clear name to quickly find executions for this scope.",
+                                         "placeholder":  "Ex: Main Street house renovation - March 2026",
+                                         "button":  "Create project and open comparator"
+                                     },
+                          "history":  {
+                                          "title":  "Project history",
+                                          "note":  "Select a project to continue"
+                                      },
+                          "summary":  {
+                                          "projects":  "Projects",
+                                          "active":  "Active",
+                                          "withRuns":  "With runs",
+                                          "totalRuns":  "Total runs"
+                                      },
+                          "empty":  {
+                                        "title":  "No projects yet",
+                                        "description":  "Create the first comparison to start storing history and outputs."
+                                    },
+                          "card":  {
+                                       "updatedAt":  "Updated {date}",
+                                       "executions":  "Executions",
+                                       "lastRun":  "Last run",
+                                       "runDate":  "Date: {date}",
+                                       "openProject":  "Open project",
+                                       "deleteProject":  "Delete",
+                                       "deleteProjectTitle":  "Confirm deletion",
+                                       "deleteProjectDescription":  "You are about to delete project {name} and its run history. This action cannot be undone.",
+                                       "deleteProjectCancel":  "Cancel",
+                                       "deleteProjectConfirm":  "Delete project"
+                                   },
+                          "statuses":  {
+                                           "run":  {
+                                                       "completed":  "Completed",
+                                                       "running":  "In progress",
+                                                       "queued":  "Queued",
+                                                       "failed":  "Failed",
+                                                       "cancelled":  "Cancelled",
+                                                       "none":  "No runs",
+                                                       "unknown":  "Unknown"
+                                                   },
+                                           "project":  {
+                                                           "active":  "Active",
+                                                           "draft":  "Draft",
+                                                           "archived":  "Archived",
+                                                           "unknown":  "Unknown"
+                                                       }
+                                       }
+                      }
+}
+
+
+
