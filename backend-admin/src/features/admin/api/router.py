@@ -20,6 +20,12 @@ from src.features.admin.application.use_cases.http_handlers import (
 
 router = APIRouter(tags=["admin"])
 
+
+async def _health_check() -> dict:
+    return {"status": "ok"}
+
+
+router.add_api_route("/health", _health_check, methods=["GET"], tags=["health"])
 router.add_api_route("/admin", admin_login_portal, methods=["GET"])
 router.add_api_route("/api/admin/login", admin_login, methods=["POST"])
 router.add_api_route("/api/admin/refresh", admin_refresh, methods=["POST"])
