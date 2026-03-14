@@ -1,5 +1,6 @@
 import type {TenantRole} from '@/types/tenant';
 import {createClient} from '@supabase/supabase-js';
+import {assertNonLocalUrlInProduction} from '@/lib/url-safety';
 
 type InviteEmailFailureReason = 'provider_not_configured' | 'request_failed' | 'rate_limited';
 
@@ -23,16 +24,28 @@ function isProductionRuntime(): boolean {
 
 function resolveAppBaseUrl(): string {
   const fromEnv =
+    process.env.ADMIN_APP_URL ||
+    process.env.NEXT_PUBLIC_ADMIN_APP_URL ||
     process.env.APP_BASE_URL ||
     process.env.NEXT_PUBLIC_APP_URL ||
     process.env.NEXT_PUBLIC_SITE_URL ||
     process.env.SITE_URL ||
     '';
   const normalized = fromEnv.trim().replace(/\/+$/, '');
-  if (normalized) return normalized;
+  if (normalized) {
+    assertNonLocalUrlInProduction(
+      normalized,
+      'ADMIN_APP_URL / NEXT_PUBLIC_ADMIN_APP_URL / APP_BASE_URL / NEXT_PUBLIC_APP_URL / NEXT_PUBLIC_SITE_URL / SITE_URL',
+    );
+    return normalized;
+  }
 
   const vercel = (process.env.VERCEL_URL || '').trim();
-  if (vercel) return `https://${vercel.replace(/\/+$/, '')}`;
+  if (vercel) {
+    const normalizedVercel = `https://${vercel.replace(/\/+$/, '')}`;
+    assertNonLocalUrlInProduction(normalizedVercel, 'VERCEL_URL');
+    return normalizedVercel;
+  }
 
   if (isProductionRuntime()) {
     return '';

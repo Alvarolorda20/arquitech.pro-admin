@@ -1,6 +1,7 @@
 import {NextRequest, NextResponse} from 'next/server';
 
 import {getBackendApiBaseUrl} from '@/lib/backend-api';
+import {assertNonLocalUrlInProduction} from '@/lib/url-safety';
 import {ADMIN_PROXY_ALLOWED_PATHS} from '@/modules/admin/contracts';
 import {resolveApiOriginFromHost} from '@/modules/admin/runtime';
 
@@ -42,7 +43,12 @@ function resolveBackendCandidates(request: NextRequest): string[] {
 
   const candidates: string[] = [];
   if (configured) {
-    candidates.push(normalizeBaseUrl(configured));
+    const normalized = normalizeBaseUrl(configured);
+    assertNonLocalUrlInProduction(
+      normalized,
+      'API_URL / BACKEND_URL / NEXT_PUBLIC_API_URL / NEXT_PUBLIC_BACKEND_URL',
+    );
+    candidates.push(normalized);
   } else {
     const defaultBase = normalizeBaseUrl(getBackendApiBaseUrl());
     if (defaultBase) candidates.push(defaultBase);
@@ -51,7 +57,11 @@ function resolveBackendCandidates(request: NextRequest): string[] {
   const host = String(request.nextUrl.hostname || '').trim().toLowerCase();
   const protocol = String(request.nextUrl.protocol || 'https:').trim();
   const apiOrigin = resolveApiOriginFromHost(host, protocol);
-  if (apiOrigin) candidates.push(normalizeBaseUrl(apiOrigin));
+  if (apiOrigin) {
+    const normalized = normalizeBaseUrl(apiOrigin);
+    assertNonLocalUrlInProduction(normalized, 'resolved api origin from host');
+    candidates.push(normalized);
+  }
 
   return Array.from(new Set(candidates.filter(Boolean)));
 }
@@ -66,7 +76,13 @@ async function proxyRequest(
     return NextResponse.json({detail: 'Not found'}, {status: 404});
   }
 
-  const backendCandidates = resolveBackendCandidates(request);
+  let backendCandidates: string[] = [];
+  try {
+    backendCandidates = resolveBackendCandidates(request);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Admin backend configuration error.';
+    return NextResponse.json({detail: message}, {status: 503});
+  }
   if (backendCandidates.length === 0) {
     return NextResponse.json(
       {

@@ -56,12 +56,16 @@ docker compose ps
 2. `https://admin.arquitech.pro` carga el login admin.
 3. Usuario no global-admin no entra a vistas admin.
 4. Desde admin, "Abrir workspace" redirige a `https://app.arquitech.pro`.
+5. Ninguna variable de produccion usa `localhost`, `127.0.0.1` o `0.0.0.0`.
 
 ## Seguridad
 
 - El backend admin autoriza acciones sensibles solo con global admins.
 - El panel admin aplica aislamiento por host (`admin.*`) y scope de rutas admin.
 - El repo cliente no debe desplegar rutas/admin API admin en `app.*` / `api.*`.
+- Hardening en produccion:
+  - frontend y proxy admin rechazan URLs locales,
+  - backend falla en arranque si `BACKEND_CORS_ORIGINS` incluye origenes locales.
 
 ## Desarrollo local
 

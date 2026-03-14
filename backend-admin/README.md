@@ -29,6 +29,11 @@ Host objetivo: `api-admin.arquitech.pro`.
 - `BACKEND_CORS_ORIGINS` (ejemplo: `https://admin.arquitech.pro`)
 - `GLOBAL_ADMIN_USER_IDS` y/o `GLOBAL_ADMIN_EMAILS` (lista blanca real de global admins)
 
+## Hardening produccion
+
+- En `NODE_ENV=production`, `BACKEND_CORS_ORIGINS` es obligatorio.
+- El backend falla en arranque si CORS incluye origenes locales (`localhost`, `127.0.0.1`, `0.0.0.0`).
+
 ## Hardening recomendado (produccion)
 
 - `GLOBAL_ADMIN_ALLOWED_ROLES=global_admin,super_admin`

@@ -30,6 +30,12 @@ ADMIN_PANEL_HOST=admin.arquitech.pro
 WORKSPACE_APP_HOST=app.arquitech.pro
 ```
 
+## Hardening produccion
+
+- En `NODE_ENV=production`, el panel rechaza configuraciones con URLs locales (`localhost`, `127.0.0.1`, `0.0.0.0`).
+- Si `API_URL` / `NEXT_PUBLIC_API_URL` apunta a local en prod, `/api/admin/*` responde `503` con error explicito.
+- `panel-admin/.env.local` es solo para desarrollo local.
+
 ## Ejecutar
 
 ```bash

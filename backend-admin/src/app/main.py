@@ -3,6 +3,7 @@
 import os
 import time
 import uuid
+from urllib.parse import urlsplit
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -42,13 +43,49 @@ def _default_cors_origins() -> list[str]:
     return ["http://localhost:3001"]
 
 
+def _extract_hostname(value: str) -> str:
+    raw = (value or "").strip()
+    if not raw:
+        return ""
+    probe = raw if "://" in raw else f"https://{raw}"
+    try:
+        return (urlsplit(probe).hostname or "").strip().lower()
+    except Exception:
+        return ""
+
+
+def _is_local_hostname(hostname: str) -> bool:
+    host = (hostname or "").strip().lower()
+    if not host:
+        return False
+    if host in {"localhost", "0.0.0.0", "::1"}:
+        return True
+    return host.startswith("127.")
+
+
+def _is_local_origin(value: str) -> bool:
+    return _is_local_hostname(_extract_hostname(value))
+
+
 def _load_cors_origins() -> list[str]:
     raw = os.environ.get("BACKEND_CORS_ORIGINS", "")
     if raw.strip():
         origins = [item.strip().rstrip("/") for item in raw.split(",") if item and item.strip()]
-        if origins:
-            return origins
-    return _default_cors_origins()
+    else:
+        origins = _default_cors_origins()
+
+    if _is_production_runtime():
+        if not origins:
+            raise RuntimeError(
+                "No CORS origins configured for production. Set BACKEND_CORS_ORIGINS (e.g. https://admin.arquitech.pro)."
+            )
+        local_origins = [origin for origin in origins if _is_local_origin(origin)]
+        if local_origins:
+            joined = ", ".join(local_origins)
+            raise RuntimeError(
+                f"Invalid BACKEND_CORS_ORIGINS for production. Local origins are not allowed: {joined}"
+            )
+    return origins
 
 
 def create_app() -> FastAPI:
@@ -130,11 +167,6 @@ def create_app() -> FastAPI:
             "admin_routes_enabled": True,
         },
     )
-    if not cors_origins:
-        _logger.warning(
-            "No CORS origins configured; set BACKEND_CORS_ORIGINS or APP_BASE_URL in production."
-        )
-
     app.add_event_handler("startup", runtime.startup_temp_housekeeping)
     app.include_router(admin_router)
     return app

@@ -1,4 +1,5 @@
 import {resolveApiOriginFromHost} from '@/modules/admin/runtime';
+import {assertNonLocalUrlInProduction} from '@/lib/url-safety';
 
 function stripTrailingSlashes(value: string): string {
   return value.replace(/\/+$/, '');
@@ -24,7 +25,12 @@ function resolveFirstConfiguredBackendBaseUrl(): string {
 export function getBackendApiBaseUrl(): string {
   const configured = resolveFirstConfiguredBackendBaseUrl();
   if (configured) {
-    return normalizeBackendBaseUrl(configured);
+    const normalized = normalizeBackendBaseUrl(configured);
+    assertNonLocalUrlInProduction(
+      normalized,
+      'API_URL / BACKEND_URL / NEXT_PUBLIC_API_URL / NEXT_PUBLIC_BACKEND_URL',
+    );
+    return normalized;
   }
   if (process.env.NODE_ENV !== 'production') {
     return 'http://localhost:8000';
@@ -38,7 +44,9 @@ export function getPublicBackendApiBaseUrl(): string {
     process.env.NEXT_PUBLIC_BACKEND_URL?.trim() ||
     '';
   if (configured) {
-    return normalizeBackendBaseUrl(configured);
+    const normalized = normalizeBackendBaseUrl(configured);
+    assertNonLocalUrlInProduction(normalized, 'NEXT_PUBLIC_API_URL / NEXT_PUBLIC_BACKEND_URL');
+    return normalized;
   }
   if (process.env.NODE_ENV !== 'production') {
     return 'http://localhost:8000';
@@ -46,9 +54,13 @@ export function getPublicBackendApiBaseUrl(): string {
   if (typeof window !== 'undefined' && window.location.origin) {
     const apiOrigin = resolveApiOriginFromHost(window.location.hostname, window.location.protocol);
     if (apiOrigin) {
-      return stripTrailingSlashes(apiOrigin);
+      const normalized = stripTrailingSlashes(apiOrigin);
+      assertNonLocalUrlInProduction(normalized, 'resolved browser API origin');
+      return normalized;
     }
-    return stripTrailingSlashes(window.location.origin);
+    const sameOrigin = stripTrailingSlashes(window.location.origin);
+    assertNonLocalUrlInProduction(sameOrigin, 'window.location.origin');
+    return sameOrigin;
   }
   return '';
 }
