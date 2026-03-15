@@ -60,7 +60,12 @@ export async function middleware(request: NextRequest) {
   const isAuthPage = isAuthPath(pathname);
   const isProtected = isProtectedPath(pathname);
   const isAdminProtected = isAdminProtectedPath(pathname);
-  const requestHost = String(request.nextUrl.hostname || '').trim().toLowerCase().replace(/:\d+$/, '');
+  const requestHost = (
+    request.headers.get('x-forwarded-host') ||
+    request.headers.get('host') ||
+    request.nextUrl.hostname ||
+    ''
+  ).split(':')[0].trim().toLowerCase();
   const adminHost = getConfiguredAdminHost();
   const workspaceHost = getConfiguredWorkspaceHost();
   const adminScopedPath = isAdminScopedPath(pathname);
