@@ -44,7 +44,14 @@ function isAdminProtectedPath(pathname: string): boolean {
 function buildHostRedirect(request: NextRequest, targetHost: string): URL {
   const redirectUrl = request.nextUrl.clone();
   redirectUrl.hostname = targetHost;
+  redirectUrl.port = '';
   return redirectUrl;
+}
+
+function buildSafeUrl(path: string, request: NextRequest): URL {
+  const url = new URL(path, request.nextUrl.clone());
+  url.port = '';
+  return url;
 }
 
 export async function middleware(request: NextRequest) {
@@ -53,7 +60,7 @@ export async function middleware(request: NextRequest) {
   const isAuthPage = isAuthPath(pathname);
   const isProtected = isProtectedPath(pathname);
   const isAdminProtected = isAdminProtectedPath(pathname);
-  const requestHost = String(request.nextUrl.hostname || '').trim().toLowerCase();
+  const requestHost = String(request.nextUrl.hostname || '').trim().toLowerCase().replace(/:\d+$/, '');
   const adminHost = getConfiguredAdminHost();
   const workspaceHost = getConfiguredWorkspaceHost();
   const adminScopedPath = isAdminScopedPath(pathname);
@@ -74,7 +81,7 @@ export async function middleware(request: NextRequest) {
 
   // Admin panel is isolated: keep navigation inside admin routes only.
   if (!adminScopedPath) {
-    return NextResponse.redirect(new URL('/', request.url));
+    return NextResponse.redirect(buildSafeUrl('/', request));
   }
 
   const {response, user, isGlobalAdmin} = await syncSessionAndTenant(request);
@@ -100,7 +107,7 @@ export async function middleware(request: NextRequest) {
   if (user) {
     const startedAtRaw = request.cookies.get(APP_SESSION_STARTED_AT_COOKIE)?.value;
     if (isSessionExpired(startedAtRaw)) {
-      const logoutUrl = new URL('/logout', request.url);
+      const logoutUrl = buildSafeUrl('/logout', request);
       logoutUrl.searchParams.set('reason', 'session_expired');
       logoutUrl.searchParams.set('next', fullPathWithQuery);
       return NextResponse.redirect(logoutUrl);
@@ -116,14 +123,14 @@ export async function middleware(request: NextRequest) {
   }
 
   if (!user && (isProtected || isAdminProtected)) {
-    const loginUrl = new URL(LOGIN_PAGE, request.url);
+    const loginUrl = buildSafeUrl(LOGIN_PAGE, request);
     loginUrl.searchParams.set('next', fullPathWithQuery);
 
     return NextResponse.redirect(loginUrl);
   }
 
   if (user && isAdminProtected && !isGlobalAdmin) {
-    const logoutUrl = new URL('/logout', request.url);
+    const logoutUrl = buildSafeUrl('/logout', request);
     logoutUrl.searchParams.set('next', '/');
     return NextResponse.redirect(logoutUrl);
   }
@@ -135,7 +142,7 @@ export async function middleware(request: NextRequest) {
       return response;
     }
 
-    return NextResponse.redirect(new URL('/', request.url));
+    return NextResponse.redirect(buildSafeUrl('/', request));
   }
 
   return response;
